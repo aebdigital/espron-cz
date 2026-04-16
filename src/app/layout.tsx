@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import CookieConsentMount from "@/components/cookies/CookieConsentMount";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <SmoothScroll />
         {children}
+        <CookieConsentMount />
       </body>
     </html>
   );

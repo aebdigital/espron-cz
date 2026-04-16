@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieSettingsButton from "@/components/cookies/CookieSettingsButton";
 
 export default function Footer() {
   return (
@@ -79,6 +80,9 @@ export default function Footer() {
             >
               Kontakt
             </Link>
+            <CookieSettingsButton className="text-xs font-light text-white/40 hover:text-white/70 transition-colors">
+              Cookies
+            </CookieSettingsButton>
           </div>
         </div>
       </div>

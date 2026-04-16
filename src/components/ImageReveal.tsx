@@ -40,10 +40,9 @@ export default function ImageReveal({
         whileInView={{ scale: 1 }}
         whileHover={{ scale: 1.05, filter: "grayscale(0%)" }}
         viewport={{ once: true }}
-        transition={{ 
-          duration: 1.8, 
-          delay: delay / 1000, 
-          ease: [0.76, 0, 0.24, 1] 
+        transition={{
+          scale: { duration: 1.8, delay: delay / 1000, ease: [0.76, 0, 0.24, 1] },
+          filter: { duration: 0.25, ease: "easeOut" },
         }}
         className="w-full h-full origin-center"
       >
