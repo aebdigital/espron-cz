@@ -139,8 +139,12 @@ const FAQ_ANSWERS: Record<string, string> = {
 };
 
 const getSnapshot = cache(async (): Promise<ScrapeSnapshot> => {
-  const raw = await fs.readFile(SNAPSHOT_PATH, "utf8");
-  return JSON.parse(raw) as ScrapeSnapshot;
+  try {
+    const raw = await fs.readFile(SNAPSHOT_PATH, "utf8");
+    return JSON.parse(raw) as ScrapeSnapshot;
+  } catch {
+    return { pages: [] };
+  }
 });
 
 const getTextLines = cache(async (absolutePath: string): Promise<string[]> => {
