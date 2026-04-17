@@ -147,8 +147,13 @@ const getSnapshot = cache(async (): Promise<ScrapeSnapshot> => {
   }
 });
 
-const getTextLines = cache(async (absolutePath: string): Promise<string[]> => {
-  const raw = await fs.readFile(absolutePath, "utf8");
+const getTextLines = cache(async (filePath: string): Promise<string[]> => {
+  // Fix local absolute paths from the scrape JSON to work in any environment
+  const safePath = filePath.includes("_snapshot")
+    ? path.join(process.cwd(), "_snapshot", filePath.split("_snapshot")[1])
+    : filePath;
+
+  const raw = await fs.readFile(safePath, "utf8");
   return normalizeLines(raw.split(/\r?\n/));
 });
 
