@@ -7,7 +7,8 @@ export type PageFamily =
   | "insulation-city"
   | "insulation-case-study"
   | "insulation-guide"
-  | "faq";
+  | "faq"
+  | "staffing";
 
 export type PageOverride = {
   label: string;
