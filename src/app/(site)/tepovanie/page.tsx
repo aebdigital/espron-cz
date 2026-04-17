@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+import FloatingQuoteButton from "@/components/site/FloatingQuoteButton";
 import TepovanieQuoteForm from "@/components/site/TepovanieQuoteForm";
+import { SERVICE_PAGE_MEDIA } from "@/lib/service-page-media";
+import { PAGE_OVERRIDES } from "@/lib/site-navigation";
 
 export const metadata: Metadata = {
   title: "Prémiové tepovanie kobercov a sedačiek | ESPRON",
@@ -119,81 +123,120 @@ const PRICING = [
   },
 ];
 
+const MEDIA = SERVICE_PAGE_MEDIA["/tepovanie"];
+const CATEGORY = PAGE_OVERRIDES["/tepovanie"].eyebrow;
+
 export default function TepovaniePage() {
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      {/* ── STANDARD HERO ───────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-primary-dark pb-18 pt-28 text-white md:pb-24 md:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_34%),linear-gradient(120deg,rgba(255,255,255,0.06),transparent_26%)]" />
-        <div className="relative mx-auto grid w-[95vw] gap-12 px-6 md:px-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+        <div className="relative mx-auto w-[92%]">
+          <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
+            {CATEGORY}
+          </p>
+          <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
+            Tepovanie
+          </h1>
+          <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
+            Hĺbkové tepovanie kobercov, sedačiek a čalúnenia s dôrazom na čistotu,
+            rýchle schnutie a profesionálny výsledok bez zbytočného stresu.
+          </p>
+          <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/kontakt"
+              className="rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90"
+            >
+              Kontaktovať nás
+            </Link>
+            <Link
+              href="mailto:info@espron.sk"
+              className="rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors hover:bg-white/10"
+            >
+              Napísať e-mail
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-white py-20 md:py-28">
+        <div className="relative mx-auto grid w-[92%] gap-12 lg:grid-cols-2 lg:items-center">
+          <AnimateOnScroll>
+            <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl lg:text-6xl">
               Prémiové tepovanie kobercov a sedačiek
             </h1>
-            <p className="mt-5 text-lg font-medium text-white/75">
+            <p className="mt-5 text-lg font-medium text-foreground/70">
               Škvrna na koberci alebo zašpinená sedačka? Žiadny problém.
             </p>
-            <p className="mt-3 text-base leading-7 text-white/65">
+            <p className="mt-3 text-base leading-7 text-foreground/65">
               Pošli foto. Do 24 h pošleme cenu a termín. Do rána suché, bez zápachu.
             </p>
             <p className="mt-3 text-sm font-semibold text-amber-400">
               7-dňová garancia spokojnosti.
             </p>
-            <div className="mt-5 text-sm text-white/55">
-              <span className="font-semibold text-white/70">Lokalita:</span>{" "}
+            <div className="mt-5 text-sm text-foreground/55">
+              <span className="font-semibold text-foreground/70">Lokalita:</span>{" "}
               Spišská Nová Ves a okolie • Poprad • Prešov
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/kontakt"
-                className="rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90"
+                className="rounded-full bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors hover:bg-primary/90"
               >
                 Chcem nezáväznú cenovú ponuku
               </Link>
             </div>
             <div className="mt-6 flex items-center gap-2">
               <span className="text-amber-400">★★★★★</span>
-              <span className="text-sm text-white/55">Hodnotenie na google</span>
+              <span className="text-sm text-foreground/55">Hodnotenie na google</span>
             </div>
-          </div>
-          <div className="relative hidden aspect-[4/3] overflow-hidden rounded-3xl lg:block">
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={120} className="relative hidden aspect-[4/3] overflow-hidden rounded-3xl lg:block">
             <Image
-              src="/images/realizacie/b0408c_2883303b07a4489798740af9878cc2db~mv2.avif"
+              src={MEDIA.preview}
               alt="Tepovanie kobercov a sedačiek"
               fill
               sizes="50vw"
               className="object-cover"
             />
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ── WHO ──────────────────────────────────────────────────────── */}
       <section className="bg-primary py-20 text-white md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
+        <div className="mx-auto w-[92%]">
           <div className="mb-14 text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
-              Kto a kedy si nás volá?
-            </h2>
-            <p className="mt-3 text-sm text-white/60">
-              Spoznáte sa v niektorej z týchto situácií?
-            </p>
+            <AnimateOnScroll>
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  Kto a kedy si nás volá?
+                </h2>
+                <p className="mt-3 text-sm text-white/60">
+                  Spoznáte sa v niektorej z týchto situácií?
+                </p>
+              </div>
+            </AnimateOnScroll>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {WHO.map((group) => (
-              <div key={group.title} className="rounded-[1.5rem] border border-white/12 bg-white/8 p-8 backdrop-blur-sm">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
-                  {group.icon}
+            {WHO.map((group, index) => (
+              <AnimateOnScroll key={group.title} delay={index * 80}>
+                <div className="rounded-[1.5rem] border border-white/12 bg-white/8 p-8 backdrop-blur-sm">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
+                    {group.icon}
+                  </div>
+                  <h3 className="mb-5 text-base font-bold text-white">{group.title}</h3>
+                  <ul className="space-y-3">
+                    {group.items.map((item) => (
+                      <li key={item} className="text-sm leading-6 text-white/70">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="mb-5 text-base font-bold text-white">{group.title}</h3>
-                <ul className="space-y-3">
-                  {group.items.map((item) => (
-                    <li key={item} className="text-sm leading-6 text-white/70">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -201,19 +244,23 @@ export default function TepovaniePage() {
 
       {/* ── PROCESS ──────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Ako prebieha prémiové tepovanie
-          </h2>
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll>
+            <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              Ako prebieha prémiové tepovanie
+            </h2>
+          </AnimateOnScroll>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS.map((s) => (
-              <div key={s.num} className="flex flex-col items-center gap-4 text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-                  <span className="text-sm font-extrabold text-primary">{s.num}</span>
+            {PROCESS.map((s, index) => (
+              <AnimateOnScroll key={s.num} delay={index * 70}>
+                <div className="flex flex-col items-center gap-4 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                    <span className="text-sm font-extrabold text-primary">{s.num}</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground">{s.title}</h3>
+                  <p className="text-sm leading-6 text-foreground/65">{s.desc}</p>
                 </div>
-                <h3 className="text-sm font-bold text-foreground">{s.title}</h3>
-                <p className="text-sm leading-6 text-foreground/65">{s.desc}</p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -221,55 +268,90 @@ export default function TepovaniePage() {
 
       {/* ── REASONS ──────────────────────────────────────────────────── */}
       <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto grid w-[95vw] gap-12 px-6 md:px-10 lg:grid-cols-[1fr_1.4fr] lg:items-start">
-          <div>
+        <div className="mx-auto grid w-[92%] gap-12 lg:grid-cols-[0.8fr_280px_1.2fr_280px] lg:items-start">
+          <AnimateOnScroll>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl">
               Prečo nám zveriť tepovanie
             </h2>
-          </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll
+            delay={80}
+            className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-border bg-white"
+          >
+            <Image
+              src={MEDIA.items[2].image}
+              alt={MEDIA.items[2].alt}
+              fill
+              sizes="(min-width: 1024px) 280px, 100vw"
+              className="object-cover"
+            />
+          </AnimateOnScroll>
           <div className="space-y-6">
-            {REASONS.map((r) => (
-              <div key={r.title}>
-                <p className="font-bold text-foreground">{r.title}</p>
-                <p className="mt-1 text-sm leading-6 text-foreground/70">{r.desc}</p>
-              </div>
+            {REASONS.map((r, index) => (
+              <AnimateOnScroll key={r.title} delay={index * 80}>
+                <div>
+                  <p className="font-bold text-foreground">{r.title}</p>
+                  <p className="mt-1 text-sm leading-6 text-foreground/70">{r.desc}</p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
+          <AnimateOnScroll
+            delay={140}
+            className="relative hidden aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-border bg-white lg:block"
+          >
+            <Image
+              src={MEDIA.items[1].image}
+              alt={MEDIA.items[1].alt}
+              fill
+              sizes="(min-width: 1024px) 280px, 100vw"
+              className="object-cover"
+            />
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ── PRICING ──────────────────────────────────────────────────── */}
       <section className="bg-primary-dark py-20 text-white md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-white md:text-3xl">
-            Cena
-          </h2>
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll>
+            <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-white md:text-3xl">
+              Cena
+            </h2>
+          </AnimateOnScroll>
           <div className="grid gap-10 md:grid-cols-3">
-            {PRICING.map((col) => (
-              <div key={col.category}>
-                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50">
-                  {col.category}
-                </p>
-                <ul className="space-y-2">
-                  {col.items.map((item) => (
-                    <li key={item} className="text-sm text-white/80">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {PRICING.map((col, index) => (
+              <AnimateOnScroll key={col.category} delay={index * 80}>
+                <div>
+                  <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50">
+                    {col.category}
+                  </p>
+                  <ul className="space-y-2">
+                    {col.items.map((item) => (
+                      <li key={item} className="text-sm text-white/80">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
-          <p className="mt-12 text-center text-sm text-white/60">
-            Minimálna suma objednávky je{" "}
-            <strong className="text-white">35 EUR</strong>.
-          </p>
+          <AnimateOnScroll delay={180}>
+            <p className="mt-12 text-center text-sm text-white/60">
+              Minimálna suma objednávky je{" "}
+              <strong className="text-white">35 EUR</strong>.
+            </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ── CONTACT FORM ─────────────────────────────────────────────── */}
-      <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto w-[95vw] max-w-3xl px-6 md:px-10">
+      <section
+        id="cenova-ponuka"
+        className="scroll-mt-32 bg-light py-20 md:scroll-mt-40 md:py-28"
+      >
+        <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
             Ako nás kontaktovať?
           </h2>
@@ -277,8 +359,9 @@ export default function TepovaniePage() {
             Po obdržaní informácií vám pošleme cenovú ponuku max do 2 dní. Po akceptovaní cenovej ponuky si stanovíme termín realizácie.
           </p>
           <TepovanieQuoteForm />
-        </div>
+        </AnimateOnScroll>
       </section>
+      <FloatingQuoteButton />
     </>
   );
 }

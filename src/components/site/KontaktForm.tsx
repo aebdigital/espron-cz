@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitContact } from "@/lib/submit-contact";
 
 type FormData = {
   meno: string;
@@ -14,19 +15,30 @@ const empty: FormData = { meno: "", email: "", telefon: "", sprava: "" };
 export default function KontaktForm() {
   const [data, setData] = useState<FormData>(empty);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function set<K extends keyof FormData>(key: K, value: string) {
     setData((prev) => ({ ...prev, [key]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent("Kontaktný formulár – ESPRON");
-    const body = encodeURIComponent(
-      `Meno: ${data.meno}\nEmail: ${data.email}\nTelefón: ${data.telefon}\n\nSpráva:\n${data.sprava}`,
-    );
-    window.location.href = `mailto:info@espron.sk?subject=${subject}&body=${body}`;
-    setSent(true);
+    setSending(true);
+    setError(null);
+    const result = await submitContact({
+      name: data.meno,
+      email: data.email,
+      phone: data.telefon,
+      subject: "Kontaktný formulár – ESPRON",
+      message: data.sprava,
+    });
+    setSending(false);
+    if (result.success) {
+      setSent(true);
+    } else {
+      setError(result.error ?? "Odoslanie zlyhalo. Skúste nás kontaktovať priamo.");
+    }
   }
 
   if (sent) {
@@ -39,7 +51,7 @@ export default function KontaktForm() {
         </div>
         <h3 className="text-xl font-bold text-foreground">Ďakujeme!</h3>
         <p className="max-w-sm text-sm text-foreground/60">
-          Váš e-mail je pripravený. Ozveme sa vám čo najskôr.
+          Správa bola odoslaná. Ozveme sa vám čo najskôr.
         </p>
       </div>
     );
@@ -79,6 +91,7 @@ export default function KontaktForm() {
         </label>
         <input
           type="email"
+          required
           placeholder="jan.novak@example.com"
           value={data.email}
           onChange={(e) => set("email", e.target.value)}
@@ -91,20 +104,27 @@ export default function KontaktForm() {
         </label>
         <textarea
           rows={5}
+          required
           placeholder="Opíšte váš projekt alebo otázku…"
           value={data.sprava}
           onChange={(e) => set("sprava", e.target.value)}
           className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
         />
       </div>
+      {error && (
+        <p className="text-sm text-red-600">{error}</p>
+      )}
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-primary/90"
+        disabled={sending}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:opacity-60"
       >
-        Odoslať správu
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
+        {sending ? "Odosiela sa…" : "Odoslať správu"}
+        {!sending && (
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        )}
       </button>
     </form>
   );

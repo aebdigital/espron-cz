@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FaqRichAccordion from "@/components/site/FaqRichAccordion";
 
 export const metadata: Metadata = {
@@ -306,14 +307,14 @@ export default function ZateplenieFaqPage() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-primary-dark pb-18 pt-28 text-white md:pb-24 md:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_34%),linear-gradient(120deg,rgba(255,255,255,0.06),transparent_26%)]" />
-        <div className="relative mx-auto w-[95vw] px-6 md:px-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
+ <div className="relative mx-auto w-[92%]">
+          <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
             Zateplenie fasády
           </p>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+          <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
             Často kladené otázky
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
+          <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
             Odpovede na to, čo nás zákazníci pýtajú najčastejšie.
           </p>
         </div>
@@ -321,8 +322,8 @@ export default function ZateplenieFaqPage() {
 
       {/* ── FAQ ──────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto w-[95vw] max-w-4xl px-6 md:px-10">
-          <div className="mb-12">
+        <div className="mx-auto w-[92%] max-w-4xl">
+          <AnimateOnScroll className="mb-12">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl">
               Najčastejšie otázky o zateplení fasády,{" "}
               <span className="font-light text-foreground/60">
@@ -336,27 +337,31 @@ export default function ZateplenieFaqPage() {
               mohli rýchlejšie rozhodnúť, vyhnúť sa chybám a zveriť fasádu do
               správnych rúk.
             </p>
-          </div>
+          </AnimateOnScroll>
 
-          <FaqRichAccordion items={FAQ_ITEMS} />
+          <AnimateOnScroll delay={80}>
+            <FaqRichAccordion items={FAQ_ITEMS} />
+          </AnimateOnScroll>
 
-          <div className="mt-14 rounded-2xl border border-primary/20 bg-primary/5 px-8 py-7">
-            <p className="text-sm font-semibold text-foreground">
-              Nenašli ste odpoveď na svoju otázku?
-            </p>
-            <p className="mt-1 text-sm text-foreground/60">
-              Napíšte nám alebo zavolajte – radi zodpovieme akýkoľvek dotaz.
-            </p>
-            <Link
-              href="/kontakt"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-2"
-            >
-              Kontaktovať nás
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
+          <AnimateOnScroll delay={140}>
+            <div className="mt-14 rounded-2xl border border-primary/20 bg-primary/5 px-8 py-7">
+              <p className="text-sm font-semibold text-foreground">
+                Nenašli ste odpoveď na svoju otázku?
+              </p>
+              <p className="mt-1 text-sm text-foreground/60">
+                Napíšte nám alebo zavolajte – radi zodpovieme akýkoľvek dotaz.
+              </p>
+              <Link
+                href="/kontakt"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-2"
+              >
+                Kontaktovať nás
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FEATURED_FACADE_IMAGE } from "@/lib/service-page-media";
 import { CONTACT_INFO } from "@/lib/site-navigation";
 
 export default function CtaBanner() {
@@ -7,7 +8,7 @@ export default function CtaBanner() {
       <div className="absolute inset-0 opacity-40">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/hero.jpg"
+          src={FEATURED_FACADE_IMAGE}
           alt=""
           className="h-full w-full object-cover"
         />
@@ -15,7 +16,7 @@ export default function CtaBanner() {
       <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/90 to-primary" />
 
       <div className="relative z-10 py-20 text-center md:py-32">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
+ <div className="mx-auto w-[92%]">
           <h2 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-7xl">
             Plánujete stavať alebo rekonštruovať?
           </h2>

@@ -4,7 +4,7 @@ import CookieSettingsButton from "@/components/cookies/CookieSettingsButton";
 export default function Footer() {
   return (
     <footer id="kontakt" className="bg-primary text-white">
-      <div className="mx-auto w-[95vw] px-6 md:px-10 py-16 md:py-20">
+ <div className="mx-auto w-[92%] py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Address */}
           <div>

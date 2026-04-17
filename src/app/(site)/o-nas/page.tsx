@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 export const metadata: Metadata = {
   title: "O nás | ESPRON",
@@ -45,14 +46,14 @@ export default function ONasPage() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-primary-dark pb-18 pt-28 text-white md:pb-24 md:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_34%),linear-gradient(120deg,rgba(255,255,255,0.06),transparent_26%)]" />
-        <div className="relative mx-auto w-[95vw] px-6 md:px-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
+ <div className="relative mx-auto w-[92%]">
+          <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
             ESPRON
           </p>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
             O nás
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
+          <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
             Stavebná spoločnosť, ktorá spája odbornosť, transparentnosť a osobný prístup.
           </p>
         </div>
@@ -60,20 +61,29 @@ export default function ONasPage() {
 
       {/* ── PREČO VZNIKOL ESPRON ─────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto grid w-[95vw] gap-12 px-6 md:px-10 lg:grid-cols-[360px_1fr] lg:items-start">
-          {/* Image — smaller fixed width */}
-          <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
-            <Image
-              src="/images/ferove.jpg"
-              alt="Prečo vznikol ESPRON"
-              fill
-              sizes="(max-width: 1024px) 95vw, 360px"
-              className="object-cover"
-            />
+        <div className="mx-auto grid w-[92%] gap-12 lg:grid-cols-[420px_minmax(0,1fr)] lg:items-start">
+          <div className="order-2 grid gap-4 sm:grid-cols-2 lg:order-1 lg:max-w-[420px]">
+            {TEAM.map((member, index) => (
+              <AnimateOnScroll key={member.name} delay={index * 90}>
+                <div className="flex flex-col">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 640px) 46vw, (max-width: 1024px) 40vw, 200px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <p className="mt-4 text-xs text-foreground/55">{member.role}</p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">{member.name}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
           </div>
 
           {/* Text */}
-          <div className="lg:pt-4">
+          <AnimateOnScroll className="order-1 lg:order-2 lg:pt-4 lg:pl-8 xl:pl-14">
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Prečo vznikol ESPRON
             </h2>
@@ -107,77 +117,51 @@ export default function ONasPage() {
               Naším cieľom je priniesť do stavebníctva to, čo nám samotným chýbalo:{" "}
               <strong className="text-foreground">dôveru, kvalitu a výsledky, na ktoré sa môžete spoľahnúť.</strong>
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TÍM ──────────────────────────────────────────────────────── */}
-      <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Náš tím odborníkov
-          </h2>
-          <div className="flex flex-wrap justify-center gap-10">
-            {TEAM.map((member) => (
-              <div key={member.name} className="flex flex-col items-start">
-                <div className="relative h-96 w-72 overflow-hidden rounded-3xl">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="288px"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <p className="mt-4 text-xs text-foreground/55">{member.role}</p>
-                <p className="mt-1 text-sm font-semibold text-foreground">{member.name}</p>
-              </div>
-            ))}
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10 text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Tešíme sa na spoluprácu
-          </h2>
-          <p className="mt-3 text-base text-foreground/60">
-            Už si len stačí vybrať niektorú z našich služieb
-          </p>
+        <div className="mx-auto w-[92%] text-center">
+          <AnimateOnScroll>
+            <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              Tešíme sa na spoluprácu
+            </h2>
+            <p className="mt-3 text-base text-foreground/60">
+              Už si len stačí vybrať niektorú z našich služieb
+            </p>
+          </AnimateOnScroll>
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
-            {SERVICES.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                className="group relative overflow-hidden rounded-3xl"
-              >
-                {/* bg image */}
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={s.image}
-                    alt={s.label}
-                    fill
-                    sizes="(max-width: 640px) 95vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* dim overlay */}
-                  <div className="absolute inset-0 bg-primary-dark/55 transition-opacity duration-300 group-hover:bg-primary-dark/40" />
-                  {/* text */}
-                  <div className="absolute inset-0 flex items-end p-6">
-                    <div>
-                      <p className="text-lg font-bold text-white">{s.label}</p>
-                      <p className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-white/70 transition-colors group-hover:text-white">
-                        Zistiť viac
-                        <svg className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </p>
+            {SERVICES.map((s, index) => (
+              <AnimateOnScroll key={s.href} delay={index * 80}>
+                <Link
+                  href={s.href}
+                  className="group relative overflow-hidden rounded-3xl"
+                >
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={s.image}
+                      alt={s.label}
+                      fill
+                      sizes="(max-width: 640px) 95vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-primary-dark/55 transition-opacity duration-300 group-hover:bg-primary-dark/40" />
+                    <div className="absolute inset-0 flex items-end p-6">
+                      <div>
+                        <p className="text-lg font-bold text-white">{s.label}</p>
+                        <p className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-white/70 transition-colors group-hover:text-white">
+                          Zistiť viac
+                          <svg className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

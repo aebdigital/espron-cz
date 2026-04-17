@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import KontaktForm from "@/components/site/KontaktForm";
 import { CONTACT_INFO } from "@/lib/site-navigation";
 
@@ -38,14 +39,14 @@ export default function KontaktPage() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-primary-dark pb-18 pt-28 text-white md:pb-24 md:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_34%),linear-gradient(120deg,rgba(255,255,255,0.06),transparent_26%)]" />
-        <div className="relative mx-auto w-[95vw] px-6 md:px-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
+ <div className="relative mx-auto w-[92%]">
+          <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
             Spojme sa
           </p>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
             Kontakt
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-8 text-white/72 md:text-lg">
+          <p className="animate-fade-up-delay-2 mt-6 max-w-xl text-base leading-8 text-white/72 md:text-lg">
             Máte otázku alebo projekt? Ozvite sa nám — radi vám pomôžeme.
           </p>
         </div>
@@ -53,10 +54,10 @@ export default function KontaktPage() {
 
       {/* ── CONTACT ──────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto grid w-[95vw] gap-16 px-6 md:px-10 lg:grid-cols-[1fr_1.6fr] lg:items-start">
+        <div className="mx-auto grid w-[92%] gap-16 lg:grid-cols-[1fr_1.6fr] lg:items-start">
 
           {/* Left — contact info */}
-          <div>
+          <AnimateOnScroll>
             <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground">
               Kontaktné informácie
             </h2>
@@ -108,10 +109,10 @@ export default function KontaktPage() {
                 {CONTACT_INFO.email}
               </Link>
             </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* Right — form */}
-          <div className="rounded-[2rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.07)] md:p-10">
+          <AnimateOnScroll delay={120} className="rounded-[2rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.07)] md:p-10">
             <h2 className="mb-2 text-xl font-bold text-foreground">
               Napíšte nám
             </h2>
@@ -119,7 +120,7 @@ export default function KontaktPage() {
               Odpovieme vám do 1 pracovného dňa.
             </p>
             <KontaktForm />
-          </div>
+          </AnimateOnScroll>
 
         </div>
       </section>

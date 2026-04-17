@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FaqAccordion from "@/components/site/FaqAccordion";
+import FloatingQuoteButton from "@/components/site/FloatingQuoteButton";
 import InsulationQuoteForm from "@/components/site/InsulationQuoteForm";
+import LegacyGallerySection from "@/components/site/LegacyGallerySection";
 import { getSitePageByPath } from "@/lib/espron-content";
+import { ZATEPLENIE_FASADY_REALIZATIONS } from "@/lib/legacy-gallery-data";
 import { CONTACT_INFO } from "@/lib/site-navigation";
 
 export const metadata: Metadata = {
@@ -116,6 +120,14 @@ const FAQ = [
 
 export default async function ZateplenieFasadyPage() {
   const page = await getSitePageByPath("/zateplenie-fasady");
+  const hiddenHeroHighlights = new Set([
+    "Postavenie lešenia",
+    "Zakrytie okien a dlažby",
+    "Penetrácia podkladu",
+    "Lepenie izolantu",
+  ]);
+  const heroHighlights =
+    page?.highlights.filter((highlight) => !hiddenHeroHighlights.has(highlight)) ?? [];
 
   return (
     <>
@@ -129,18 +141,18 @@ export default async function ZateplenieFasadyPage() {
           </div>
         ) : null}
 
-        <div className="relative mx-auto grid w-[95vw] gap-12 px-6 md:px-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
+ <div className="relative mx-auto grid w-[92%] gap-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <div className="max-w-4xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
+            <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
               {page?.eyebrow ?? "Zateplenie fasády"}
             </p>
-            <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
+            <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
               {page?.label ?? "Zateplenie fasády"}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
+            <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
               {page?.description}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
               <Link href="/kontakt" className="rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90">
                 Kontaktovať nás
               </Link>
@@ -150,9 +162,9 @@ export default async function ZateplenieFasadyPage() {
             </div>
           </div>
 
-          {page?.highlights && page.highlights.length > 0 ? (
-            <div className="grid gap-3">
-              {page.highlights.map((highlight) => (
+          {heroHighlights.length > 0 ? (
+            <div className="animate-fade-up-delay-4 grid gap-3">
+              {heroHighlights.map((highlight) => (
                 <div key={highlight} className="rounded-[1.4rem] border border-white/12 bg-white/8 px-5 py-4 backdrop-blur-sm">
                   <p className="text-sm leading-6 text-white/82">{highlight}</p>
                 </div>
@@ -164,8 +176,8 @@ export default async function ZateplenieFasadyPage() {
 
       {/* ── CUSTOM HERO ──────────────────────────────────────────────── */}
       <section className="relative py-20 md:py-28">
-        <div className="mx-auto grid w-[95vw] grid-cols-1 gap-12 px-6 md:px-10 lg:grid-cols-2 lg:items-center">
-          <div>
+        <div className="mx-auto grid w-[92%] grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <AnimateOnScroll>
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
               Kompletné zateplenie rodinných domov{" "}
               <span className="underline underline-offset-4">kdekoľvek na Slovensku.</span>
@@ -175,10 +187,10 @@ export default async function ZateplenieFasadyPage() {
               </span>
             </h2>
             <p className="mt-6 text-base leading-8 text-foreground/70">
-              Vďaka práci zohraneho 4-členného tímu a prísnemu technologickému postupu eliminujeme bežné chyby, ako sú trhliny alebo viditeľné spoje na omietke.
+              Vďaka práci zohraných 4-členných tímov a prísnym technologickým postupom eliminujeme bežné chyby, ako sú trhliny alebo viditeľné spoje na omietke.
             </p>
             <p className="mt-3 text-base leading-8 text-foreground/70">
-              Kým iní si tieto veci nútajú ako príplatky, my ich považujeme za základ slušne odvedenej práce:
+              Kým iní si tieto veci účtujú ako príplatky, my ich považujeme za základ slušne odvedenej práce:
             </p>
             <ul className="mt-4 space-y-2">
               {["Postavenie a doprava lešenia", "Kompletné zakrytie okien a dlažby", "Odvoz a likvidácia odpadu"].map((item) => (
@@ -195,7 +207,7 @@ export default async function ZateplenieFasadyPage() {
                 Posledná šanca: Zateplenie za staré ceny
               </p>
               <p className="mt-1 text-sm text-foreground/70">
-                + Bonus <em>„Čerší domov"</em> – Tepovanie a strojové čistenie okolia domu
+                + Bonus <em>„Čistý domov“</em> (Tepovanie a strojové čistenie okolia domu)
               </p>
               <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
                 Posledné 2 voľné termíny
@@ -210,8 +222,8 @@ export default async function ZateplenieFasadyPage() {
               <span className="text-amber-400">★★★★★</span>
               <span className="text-sm text-foreground/55">Hodnotenie na Google</span>
             </div>
-          </div>
-          <div className="relative hidden aspect-[4/3] overflow-hidden rounded-3xl lg:block">
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={120} className="relative hidden aspect-[4/3] overflow-hidden rounded-3xl lg:block">
             <Image
               src="/images/realizacie/b0408c_2883303b07a4489798740af9878cc2db~mv2.avif"
               alt="Zateplenie fasády"
@@ -219,25 +231,27 @@ export default async function ZateplenieFasadyPage() {
               sizes="50vw"
               className="object-cover"
             />
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ── INCLUDED ─────────────────────────────────────────────────── */}
       <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <div className="mb-14 text-center">
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll className="mb-14 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Všetky potrebné úkony v cene
             </h2>
             <p className="mt-3 text-sm text-foreground/55">S nami máte garanciu kvality</p>
-          </div>
+          </AnimateOnScroll>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
-            {INCLUDED.map((item) => (
-              <div key={item.label} className="flex flex-col items-center gap-3 text-center">
-                <span className="text-4xl">{item.icon}</span>
-                <p className="text-xs leading-5 text-foreground/70">{item.label}</p>
-              </div>
+            {INCLUDED.map((item, index) => (
+              <AnimateOnScroll key={item.label} delay={index * 50}>
+                <div className="flex flex-col items-center gap-3 text-center">
+                  <span className="text-4xl">{item.icon}</span>
+                  <p className="text-xs leading-5 text-foreground/70">{item.label}</p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -245,8 +259,8 @@ export default async function ZateplenieFasadyPage() {
 
       {/* ── BONUSES ──────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <div className="mb-14 text-center">
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll className="mb-14 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Prečo naši klienti milujú balík <span className="uppercase">BEZSTAROSTNOSŤ</span>
             </h2>
@@ -254,14 +268,16 @@ export default async function ZateplenieFasadyPage() {
               Tieto výhody nájdete v našom najobľúbenejšom balíku, ktorý volí až{" "}
               <strong>85 % majiteľov domov.</strong>
             </p>
-          </div>
+          </AnimateOnScroll>
           <div className="grid gap-8 md:grid-cols-3">
-            {BONUSES.map((bonus) => (
-              <div key={bonus.num} className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.05)]">
-                <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.22em] text-primary/55">{bonus.num}</p>
-                <h3 className="mb-4 text-base font-bold text-foreground">{bonus.title}</h3>
-                <p className="text-sm leading-7 text-foreground/70">{bonus.desc}</p>
-              </div>
+            {BONUSES.map((bonus, index) => (
+              <AnimateOnScroll key={bonus.num} delay={index * 80}>
+                <div className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.05)]">
+                  <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.22em] text-primary/55">{bonus.num}</p>
+                  <h3 className="mb-4 text-base font-bold text-foreground">{bonus.title}</h3>
+                  <p className="text-sm leading-7 text-foreground/70">{bonus.desc}</p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -269,45 +285,46 @@ export default async function ZateplenieFasadyPage() {
 
       {/* ── PRICING ──────────────────────────────────────────────────── */}
       <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <div className="mb-14 text-center">
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll className="mb-14 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Jasné ceny bez skrytých poplatkov
             </h2>
             <p className="mt-3 text-sm text-foreground/55">
               Vyberte si úroveň starostlivosti, ktorá najviac vyhovuje vašim plánom
             </p>
-          </div>
+          </AnimateOnScroll>
           <div className="grid gap-6 md:grid-cols-3">
-            {PACKAGES.map((pkg) => (
-              <div
-                key={pkg.name}
-                className={`rounded-[1.5rem] border p-8 ${
-                  pkg.highlight
-                    ? "border-primary bg-primary text-white shadow-xl"
-                    : "border-border bg-white shadow-[0_12px_40px_rgba(15,29,74,0.05)]"
-                }`}
-              >
-                <h3 className={`mb-1 text-base font-extrabold uppercase tracking-tight ${pkg.highlight ? "text-white" : "text-foreground"}`}>
-                  {pkg.name}
-                </h3>
-                <p className={`mb-6 text-[11px] font-semibold uppercase tracking-[0.2em] ${pkg.highlight ? "text-white/60" : "text-primary/55"}`}>
-                  {pkg.sub}
-                </p>
-                <ul className="mb-8 space-y-3">
-                  {pkg.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm">
-                      <svg className={`mt-0.5 h-4 w-4 shrink-0 ${pkg.highlight ? "text-white/70" : "text-primary"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className={pkg.highlight ? "text-white/90" : "text-foreground/75"}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className={`text-sm font-bold ${pkg.highlight ? "text-white" : "text-foreground"}`}>
-                  Cena: {pkg.price}
-                </p>
-              </div>
+            {PACKAGES.map((pkg, index) => (
+              <AnimateOnScroll key={pkg.name} delay={index * 80}>
+                <div
+                  className={`rounded-[1.5rem] border p-8 ${
+                    pkg.highlight
+                      ? "border-primary bg-primary text-white shadow-xl"
+                      : "border-border bg-white shadow-[0_12px_40px_rgba(15,29,74,0.05)]"
+                  }`}
+                >
+                  <h3 className={`mb-1 text-base font-extrabold uppercase tracking-tight ${pkg.highlight ? "text-white" : "text-foreground"}`}>
+                    {pkg.name}
+                  </h3>
+                  <p className={`mb-6 text-[11px] font-semibold uppercase tracking-[0.2em] ${pkg.highlight ? "text-white/60" : "text-primary/55"}`}>
+                    {pkg.sub}
+                  </p>
+                  <ul className="mb-8 space-y-3">
+                    {pkg.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm">
+                        <svg className={`mt-0.5 h-4 w-4 shrink-0 ${pkg.highlight ? "text-white/70" : "text-primary"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className={pkg.highlight ? "text-white/90" : "text-foreground/75"}>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className={`text-sm font-bold ${pkg.highlight ? "text-white" : "text-foreground"}`}>
+                    Cena: {pkg.price}
+                  </p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -315,7 +332,7 @@ export default async function ZateplenieFasadyPage() {
 
       {/* ── URGENCY ──────────────────────────────────────────────────── */}
       <section className="bg-primary py-20 text-center md:py-28">
-        <div className="mx-auto w-[95vw] max-w-3xl px-6 md:px-10">
+        <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-amber-400">
             Posledné 2 voľné termíny
           </p>
@@ -326,11 +343,11 @@ export default async function ZateplenieFasadyPage() {
             Zabezpečte si miesto v kalendári za aktuálne ceny, kým nezačne hlavná sezóna.
           </p>
           <p className="mt-6 text-sm leading-8 text-white/70">
-            Rezervujte si zateplenie teraz a získajte Bonus „KOMPLETNÝ REŠTART" v hodnote{" "}
+            Rezervujte si zateplenie teraz a získajte Bonus „KOMPLETNÝ REŠTART&quot; v hodnote{" "}
             <strong className="text-amber-400">750 €</strong> úplne zadarmo:
           </p>
           <ul className="mt-4 space-y-2 text-sm font-semibold text-white/90">
-            <li>+ Hlbkové tepovanie sedačky a kobercov</li>
+            <li>+ Hĺbkové tepovanie sedačky a kobercov</li>
             <li>+ Strojové čistenie okolia domu profi technikou</li>
           </ul>
           <Link
@@ -339,28 +356,37 @@ export default async function ZateplenieFasadyPage() {
           >
             Chcem si zabezpečiť termín
           </Link>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto w-[95vw] max-w-3xl px-6 md:px-10">
-          <h2 className="mb-10 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Často sa nás pýtate (FAQ)
-          </h2>
-          <FaqAccordion items={FAQ} />
-          <p className="mt-10 text-sm text-foreground/55">
-            Ďalšie najčastejšie otázky a odpovede nájdete na{" "}
-            <Link href="/zateplenie-fasady/faq" className="text-primary underline underline-offset-2 hover:opacity-70">
-              /zateplenie-fasady/faq
-            </Link>
-          </p>
+        <div className="mx-auto w-[92%] max-w-3xl">
+          <AnimateOnScroll>
+            <h2 className="mb-10 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              Často sa nás pýtate (FAQ)
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={80}>
+            <FaqAccordion items={FAQ} />
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={120}>
+            <p className="mt-10 text-sm text-foreground/55">
+              Ďalšie najčastejšie otázky a odpovede nájdete na{" "}
+              <Link href="/zateplenie-fasady/faq" className="text-primary underline underline-offset-2 hover:opacity-70">
+                /zateplenie-fasady/faq
+              </Link>
+            </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ── CONTACT FORM ─────────────────────────────────────────────── */}
-      <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto w-[95vw] max-w-3xl px-6 md:px-10">
+      <section
+        id="cenova-ponuka"
+        className="scroll-mt-32 bg-light py-20 md:scroll-mt-40 md:py-28"
+      >
+        <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
             Máte záujem o cenovú ponuku na zateplenie fasády?
           </h2>
@@ -368,8 +394,15 @@ export default async function ZateplenieFasadyPage() {
             Po obdržaní informácií vám pošleme cenovú ponuku do 1–2 pracovných dní.
           </p>
           <InsulationQuoteForm />
-        </div>
+        </AnimateOnScroll>
       </section>
+      <LegacyGallerySection
+        title="Ukážky zateplenia fasád"
+        description="Realizácie z Hlohovca, Trnavy, Banskej Bystrice a Brezna vrátane jednej video ukážky z pôvodnej galérie."
+        items={ZATEPLENIE_FASADY_REALIZATIONS}
+        columns={4}
+      />
+      <FloatingQuoteButton />
     </>
   );
 }

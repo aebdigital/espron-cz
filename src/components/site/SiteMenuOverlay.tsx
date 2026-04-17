@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -15,6 +16,7 @@ type SiteMenuOverlayProps = {
 };
 
 const mainLinks = NAVIGATION_GROUPS.find((g) => g.title === "Hlavné stránky")?.items ?? [];
+const primaryHeaderLinks = new Set(["/", "/o-nas", "/blog", "/kontakt"]);
 const groupedLinks = NAVIGATION_GROUPS.filter(
   (group) =>
     group.title !== "Hlavné stránky" &&
@@ -46,11 +48,18 @@ export default function SiteMenuOverlay({
             }}
           />
 
-          <div className="relative z-10 mx-auto flex h-24 w-[95vw] items-center justify-between px-6 md:px-10">
+          <div className="relative z-10 mx-auto flex h-24 w-[92%] items-center justify-between">
             <div className="flex items-center">
-              <span className="text-xl font-black uppercase tracking-wider text-white md:text-2xl">
-                ESPRON
-              </span>
+              <Link href="/" onClick={onClose} aria-label="ESPRON domov">
+                <Image
+                  src="/espron-logo.png"
+                  alt="ESPRON"
+                  width={367}
+                  height={86}
+                  className="h-8 w-auto md:h-9"
+                  sizes="(min-width: 768px) 157px, 140px"
+                />
+              </Link>
             </div>
             <div className="flex justify-end">
               <button
@@ -72,7 +81,7 @@ export default function SiteMenuOverlay({
           </div>
 
           <div className="relative z-10 flex flex-1 items-center overflow-y-auto pb-8">
-            <div className="mx-auto grid w-[95vw] grid-cols-1 gap-12 px-6 py-10 md:grid-cols-[1fr_2fr] md:gap-20 md:px-10 md:py-0">
+            <div className="mx-auto grid w-[92%] grid-cols-1 gap-12 py-10 md:grid-cols-[1fr_2fr] md:gap-20 md:py-0">
               <div className="hidden flex-col md:flex">
                 <span className="mb-8 block text-xs uppercase tracking-widest text-white/30">
                   Kontakt & Informácie
@@ -132,25 +141,27 @@ export default function SiteMenuOverlay({
                       Hlavné stránky
                     </p>
                     <div className="space-y-2">
-                      {mainLinks.map((item) => {
-                        const active = isNavigationItemActive(pathname, item.href);
-                        return (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={onClose}
-                            className={`group block text-base transition-colors md:text-xl ${
-                              active ? "text-white" : "text-white/68 hover:text-white"
-                            }`}
-                          >
-                            <span className="hover-split-text leading-tight">
-                              <span className="hover-split-text-inner" data-text={item.label}>
-                                {item.label}
+                      {mainLinks
+                        .filter((item) => primaryHeaderLinks.has(item.href))
+                        .map((item) => {
+                          const active = isNavigationItemActive(pathname, item.href);
+                          return (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={onClose}
+                              className={`group block text-base transition-colors md:text-xl ${
+                                active ? "text-white" : "text-white/68 hover:text-white"
+                              }`}
+                            >
+                              <span className="hover-split-text leading-tight">
+                                <span className="hover-split-text-inner" data-text={item.label}>
+                                  {item.label}
+                                </span>
                               </span>
-                            </span>
-                          </Link>
-                        );
-                      })}
+                            </Link>
+                          );
+                        })}
                     </div>
                   </motion.div>
 

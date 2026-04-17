@@ -20,7 +20,7 @@ export default function ImageReveal({
   grayscale = true,
 }: Props) {
   return (
-    <div className={`relative overflow-hidden group ${className}`}>
+    <div className={`relative h-full w-full overflow-hidden rounded-[inherit] ${className}`}>
       {/* Shutter Reveal Effect */}
       <motion.div
         initial={{ y: 0 }}
@@ -31,7 +31,7 @@ export default function ImageReveal({
           delay: delay / 1000, 
           ease: [0.76, 0, 0.24, 1] 
         }}
-        className="absolute inset-0 bg-primary z-10"
+        className="absolute inset-0 z-10 rounded-[inherit] bg-primary"
       />
       
       {/* Image Content */}
@@ -44,7 +44,7 @@ export default function ImageReveal({
           scale: { duration: 1.8, delay: delay / 1000, ease: [0.76, 0, 0.24, 1] },
           filter: { duration: 0.25, ease: "easeOut" },
         }}
-        className="w-full h-full origin-center"
+        className="h-full w-full origin-center rounded-[inherit] transform-gpu"
       >
         {children}
       </motion.div>

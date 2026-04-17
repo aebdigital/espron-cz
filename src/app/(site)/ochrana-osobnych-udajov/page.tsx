@@ -80,7 +80,7 @@ const SECTIONS: Section[] = [
 
 export default function OchranaOsobnychUdajovPage() {
   return (
-    <main className="mx-auto w-[95vw] max-w-4xl px-6 py-20 md:py-28">
+ <main className="mx-auto w-[92%] max-w-4xl py-20 md:py-28">
       {/* Header */}
       <div className="mb-14 border-b border-border pb-10">
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">

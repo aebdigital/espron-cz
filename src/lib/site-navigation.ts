@@ -7,8 +7,7 @@ export type PageFamily =
   | "insulation-city"
   | "insulation-case-study"
   | "insulation-guide"
-  | "faq"
-  | "staffing";
+  | "faq";
 
 export type PageOverride = {
   label: string;
@@ -93,12 +92,6 @@ export const PAGE_OVERRIDES: Record<string, PageOverride> = {
     eyebrow: "Čistiace práce",
     family: "tepovanie",
     related: ["/cistenie-fasady", "/cistenie-dlazby", "/kontakt"],
-  },
-  "/personalny-leasing-stavbarov": {
-    label: "Personálny leasing",
-    eyebrow: "Ďalšie služby",
-    family: "staffing",
-    related: ["/o-nas", "/kontakt", "/zateplenie-fasady"],
   },
   "/zateplenie-fasady/bratislava": {
     label: "Zateplenie Bratislava",
@@ -251,15 +244,6 @@ export const NAVIGATION_GROUPS: NavigationGroup[] = [
       { href: "/zateplenie-fasady/kosice", label: "Košice" },
       { href: "/zateplenie-fasady/trencin", label: "Trenčín" },
       { href: "/zateplenie-fasady/trnava", label: "Trnava mesto" },
-    ],
-  },
-  {
-    title: "Ďalšie",
-    items: [
-      {
-        href: "/personalny-leasing-stavbarov",
-        label: "Personálny leasing stavbárov",
-      },
     ],
   },
 ];

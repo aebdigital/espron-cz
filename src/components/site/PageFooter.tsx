@@ -7,7 +7,7 @@ export default function PageFooter() {
     <footer className="relative overflow-hidden bg-primary-dark text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_28%)]" />
 
-      <div className="relative mx-auto w-[95vw] px-6 py-16 md:px-10 md:py-20">
+ <div className="relative mx-auto w-[92%] py-16 md:py-20">
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="max-w-md">
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/40">

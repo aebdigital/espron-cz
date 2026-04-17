@@ -30,7 +30,7 @@ export default function SiteHeader() {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${scrolled ? "bg-primary/95 backdrop-blur-md border-b border-white/5" : "bg-transparent"}`}>
-        <div className="mx-auto w-[95vw] flex items-center justify-between h-16 md:h-24 px-6 md:px-10">
+ <div className="mx-auto w-[92%] flex items-center justify-between h-16 md:h-24">
           
           {/* Logo Alignment: Left on All screens */}
           <div className="flex items-center">

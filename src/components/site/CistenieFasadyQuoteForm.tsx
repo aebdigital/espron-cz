@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitContact } from "@/lib/submit-contact";
 
 type FormData = {
   typCistenia: string;
@@ -38,6 +39,8 @@ export default function CistenieFasadyQuoteForm() {
   const [step, setStep] = useState(0);
   const [data, setData] = useState<FormData>(empty);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const total = STEPS.length;
   const isLast = step === total - 1;
@@ -53,8 +56,9 @@ export default function CistenieFasadyQuoteForm() {
     setStep((s) => Math.max(s - 1, 0));
   }
 
-  function handleSubmit() {
-    const subject = encodeURIComponent("Cenová ponuka – čistenie fasády");
+  async function handleSubmit() {
+    setSending(true);
+    setError(null);
     const lines = [
       `Typ čistenia: ${data.typCistenia}`,
       `Typ fasády: ${data.typFasady}`,
@@ -64,9 +68,16 @@ export default function CistenieFasadyQuoteForm() {
       `Email: ${data.email}`,
       `Telefón: ${data.telefon}`,
     ];
-    const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:info@espron.sk?subject=${subject}&body=${body}`;
-    setSent(true);
+    const result = await submitContact({
+      name: data.meno,
+      email: data.email,
+      phone: data.telefon,
+      subject: "Cenová ponuka – čistenie fasády",
+      message: lines.join("\n"),
+    });
+    setSending(false);
+    if (result.success) { setSent(true); }
+    else { setError(result.error ?? "Odoslanie zlyhalo."); }
   }
 
   if (sent) {
@@ -79,7 +90,7 @@ export default function CistenieFasadyQuoteForm() {
         </div>
         <h3 className="text-xl font-bold text-foreground">Ďakujeme!</h3>
         <p className="max-w-sm text-sm text-foreground/60">
-          Váš e-mail je pripravený. Cenovú ponuku vám pošleme do 1–2 pracovných dní.
+          Cenovú ponuku vám pošleme do 1–2 pracovných dní.
         </p>
       </div>
     );
@@ -309,11 +320,12 @@ export default function CistenieFasadyQuoteForm() {
             ))}
           </div>
           <p className="mt-5 text-xs text-foreground/45">
-            Kliknutím na „Odoslať" sa otvorí váš e-mailový klient s predvyplnenými údajmi.
+            Skontrolujte údaje a kliknite na „Odoslať". Cenovú ponuku vám pošleme do 1–2 pracovných dní.
           </p>
         </div>
       )}
 
+      {error && <p className="mt-6 text-sm text-red-600">{error}</p>}
       {/* Navigation */}
       <div className="mt-8 flex items-center justify-between">
         {step > 0 ? (
@@ -346,12 +358,15 @@ export default function CistenieFasadyQuoteForm() {
           <button
             type="button"
             onClick={handleSubmit}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90"
+            disabled={sending}
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:opacity-60"
           >
-            Odoslať
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
+            {sending ? "Odosiela sa…" : "Odoslať"}
+            {!sending && (
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            )}
           </button>
         )}
       </div>

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+import FloatingQuoteButton from "@/components/site/FloatingQuoteButton";
 import InterierQuoteForm from "@/components/site/InterierQuoteForm";
+import { PAGE_OVERRIDES } from "@/lib/site-navigation";
 
 export const metadata: Metadata = {
   title: "Interiérový dizajn | ESPRON",
@@ -55,23 +58,25 @@ const PRICING = [
   { label: "Vypracovanie projektu", price: "od 950 EUR" },
 ];
 
+const CATEGORY = PAGE_OVERRIDES["/interierovy-dizajn"].eyebrow;
+
 export default function InterierovyDizajnPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-primary-dark pb-18 pt-28 text-white md:pb-24 md:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_34%),linear-gradient(120deg,rgba(255,255,255,0.06),transparent_26%)]" />
-        <div className="relative mx-auto w-[95vw] px-6 md:px-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
-            Interiérový dizajn
+ <div className="relative mx-auto w-[92%]">
+          <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
+            {CATEGORY}
           </p>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
             Interiérový dizajn
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
+          <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
             Interiérový dizajn predstavuje ideálne riešenie pre vlastníkov rodinných domov, bytových domov a komerčných budov, ktorí chcú vytvoriť príjemné a atraktívne prostredie pre seba alebo svojich zákazníkov.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
             <Link href="/kontakt" className="rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90">
               Kontaktovať nás
             </Link>
@@ -84,36 +89,38 @@ export default function InterierovyDizajnPage() {
 
       {/* ── COVERAGE ─────────────────────────────────────────────────── */}
       <section className="border-b border-border bg-light py-10">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
+        <AnimateOnScroll className="mx-auto w-[92%]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
             Ponúkame po celom Slovensku
           </p>
           <p className="mt-2 text-sm leading-7 text-foreground/65">
             V mestách {CITIES}.
           </p>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* ── PROCESS ──────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <div className="mb-14">
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll className="mb-14">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
               Interiérový dizajn
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Postup prác
             </h2>
-          </div>
+          </AnimateOnScroll>
           <div className="grid gap-8 md:grid-cols-2">
-            {STEPS.map((s) => (
-              <div key={s.num} className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.05)]">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <span className="text-sm font-extrabold text-primary">{s.num}</span>
+            {STEPS.map((s, index) => (
+              <AnimateOnScroll key={s.num} delay={index * 80}>
+                <div className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.05)]">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                    <span className="text-sm font-extrabold text-primary">{s.num}</span>
+                  </div>
+                  <h3 className="mb-3 text-base font-bold text-foreground">{s.title}</h3>
+                  <p className="text-sm leading-7 text-foreground/70">{s.desc}</p>
                 </div>
-                <h3 className="mb-3 text-base font-bold text-foreground">{s.title}</h3>
-                <p className="text-sm leading-7 text-foreground/70">{s.desc}</p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -121,21 +128,23 @@ export default function InterierovyDizajnPage() {
 
       {/* ── WHY ──────────────────────────────────────────────────────── */}
       <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <div className="mb-14">
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll className="mb-14">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
               Interiérový dizajn
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Prečo si nechať urobiť interiérový dizajn od profesionálnej firmy?
             </h2>
-          </div>
+          </AnimateOnScroll>
           <div className="grid gap-6 md:grid-cols-3">
-            {WHY.map((item) => (
-              <div key={item.title} className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.04)]">
-                <h3 className="mb-3 text-base font-bold text-foreground">{item.title}</h3>
-                <p className="text-sm leading-7 text-foreground/70">{item.desc}</p>
-              </div>
+            {WHY.map((item, index) => (
+              <AnimateOnScroll key={item.title} delay={index * 80}>
+                <div className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.04)]">
+                  <h3 className="mb-3 text-base font-bold text-foreground">{item.title}</h3>
+                  <p className="text-sm leading-7 text-foreground/70">{item.desc}</p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -143,29 +152,34 @@ export default function InterierovyDizajnPage() {
 
       {/* ── PRICING ──────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto w-[95vw] px-6 md:px-10">
-          <div className="mb-14">
+        <div className="mx-auto w-[92%]">
+          <AnimateOnScroll className="mb-14">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
               Interiérový dizajn
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Cena
             </h2>
-          </div>
+          </AnimateOnScroll>
           <div className="grid gap-6 md:grid-cols-3">
-            {PRICING.map((p) => (
-              <div key={p.label} className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.05)]">
-                <p className="mb-2 text-sm font-bold text-foreground">{p.label}</p>
-                <p className="text-2xl font-extrabold text-primary">{p.price}</p>
-              </div>
+            {PRICING.map((p, index) => (
+              <AnimateOnScroll key={p.label} delay={index * 80}>
+                <div className="rounded-[1.5rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.05)]">
+                  <p className="mb-2 text-sm font-bold text-foreground">{p.label}</p>
+                  <p className="text-2xl font-extrabold text-primary">{p.price}</p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── CONTACT FORM ─────────────────────────────────────────────── */}
-      <section className="bg-light py-20 md:py-28">
-        <div className="mx-auto w-[95vw] max-w-3xl px-6 md:px-10">
+      <section
+        id="cenova-ponuka"
+        className="scroll-mt-32 bg-light py-20 md:scroll-mt-40 md:py-28"
+      >
+        <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <div className="mb-3">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
               Interiérový dizajn
@@ -178,8 +192,9 @@ export default function InterierovyDizajnPage() {
             Po obdržaní informácií vám pošleme cenovú ponuku max do 5 dní (zvyčajne do 1–2 dní). Po akceptovaní cenovej ponuky si stanovíme termín prvého odovzdania návrhov. Pred začiatkom prác sa zaplatí záloha.
           </p>
           <InterierQuoteForm />
-        </div>
+        </AnimateOnScroll>
       </section>
+      <FloatingQuoteButton />
     </>
   );
 }
