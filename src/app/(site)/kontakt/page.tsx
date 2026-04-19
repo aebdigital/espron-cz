@@ -7,7 +7,7 @@ import { CONTACT_INFO } from "@/lib/site-navigation";
 export const metadata: Metadata = {
   title: "Kontakt | ESPRON",
   description:
-    "Kontaktujte ESPRON – stavebná spoločnosť s ľudským prístupom. Zavolajte, napíšte e-mail alebo vyplňte formulár.",
+    "Kontaktujte ESPRON – stavební společnost s lidským přístupem. Zavolejte, napište e-mail nebo vyplňte formulář.",
 };
 
 const CONTACT_ITEMS = [
@@ -17,7 +17,7 @@ const CONTACT_ITEMS = [
     href: undefined,
   },
   {
-    label: "Telefón",
+    label: "Telefon",
     value: CONTACT_INFO.phone,
     href: `tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`,
   },
@@ -27,7 +27,7 @@ const CONTACT_ITEMS = [
     href: `mailto:${CONTACT_INFO.email}`,
   },
   {
-    label: "Dostupnosť",
+    label: "Dostupnost",
     value: CONTACT_INFO.hours,
     href: undefined,
   },
@@ -41,13 +41,13 @@ export default function KontaktPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_34%),linear-gradient(120deg,rgba(255,255,255,0.06),transparent_26%)]" />
  <div className="relative mx-auto w-[92%]">
           <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
-            Spojme sa
+            Spojme se
           </p>
           <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
             Kontakt
           </h1>
           <p className="animate-fade-up-delay-2 mt-6 max-w-xl text-base leading-8 text-white/72 md:text-lg">
-            Máte otázku alebo projekt? Ozvite sa nám — radi vám pomôžeme.
+            Máte dotaz nebo projekt? Ozvěte se nám — rádi vám pomůžeme.
           </p>
         </div>
       </section>
@@ -59,7 +59,7 @@ export default function KontaktPage() {
           {/* Left — contact info */}
           <AnimateOnScroll>
             <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground">
-              Kontaktné informácie
+              Kontaktní informace
             </h2>
             <div className="space-y-6">
               {CONTACT_ITEMS.map((item) => (
@@ -84,7 +84,7 @@ export default function KontaktPage() {
             {/* Quick CTA links */}
             <div className="mt-10 space-y-3 border-t border-border pt-10">
               <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/40">
-                Rýchly kontakt
+                Rychlý kontakt
               </p>
               <Link
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
@@ -114,10 +114,10 @@ export default function KontaktPage() {
           {/* Right — form */}
           <AnimateOnScroll delay={120} className="rounded-[2rem] border border-border bg-white p-8 shadow-[0_12px_40px_rgba(15,29,74,0.07)] md:p-10">
             <h2 className="mb-2 text-xl font-bold text-foreground">
-              Napíšte nám
+              Napište nám
             </h2>
             <p className="mb-8 text-sm text-foreground/55">
-              Odpovieme vám do 1 pracovného dňa.
+              Odpovíme vám do 1 pracovního dne.
             </p>
             <KontaktForm />
           </AnimateOnScroll>

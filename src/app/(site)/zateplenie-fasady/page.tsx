@@ -13,81 +13,81 @@ import { ZATEPLENIE_FASADY_REALIZATIONS } from "@/lib/legacy-gallery-data";
 import { CONTACT_INFO } from "@/lib/site-navigation";
 
 export const metadata: Metadata = {
-  title: "Zateplenie fasády | ESPRON",
+  title: "Zateplení fasády | ESPRON",
   description:
-    "Kompletné zateplenie rodinných domov kdekoľvek na Slovensku. Bez estetických chýb a skrytých poplatkov. Ceny od 94 €/m².",
+    "Kompletní zateplení rodinných domů kdekoli v Česku. Bez estetických chyb a skrytých poplatků. Ceny od 94 €/m².",
 };
 
 const INCLUDED = [
-  { label: "Postavenie lešenia", icon: "🏗️" },
-  { label: "Zakrytie okien a dlažby", icon: "🪟" },
-  { label: "Penetrácia podkladu", icon: "🖌️" },
-  { label: "Lepenie izolantu", icon: "🧱" },
-  { label: "Zápustné kotvenie", icon: "🔩" },
+  { label: "Postavení lešení", icon: "🏗️" },
+  { label: "Zakrytí oken a dlažby", icon: "🪟" },
+  { label: "Penetrace podkladu", icon: "🖌️" },
+  { label: "Lepení izolantu", icon: "🧱" },
+  { label: "Zápustné kotvení", icon: "🔩" },
   { label: "APU lišty a rohové profily", icon: "📐" },
-  { label: "Sieťka a prvá vrstva lepidla", icon: "🔲" },
+  { label: "Síťka a první vrstva lepidla", icon: "🔲" },
   { label: "Druhá vrstva lepidla", icon: "🖌️" },
-  { label: "Penetrácia pod omietku", icon: "🖌️" },
-  { label: "Finálna fasádna omietka", icon: "💎" },
+  { label: "Penetrace pod omítku", icon: "🖌️" },
+  { label: "Finální fasádní omítka", icon: "💎" },
 ];
 
 const BONUSES = [
   {
     num: "Bonus #1",
-    title: "Extra záruka +365 dní v základe",
-    desc: "V tomto balíku automaticky predlžujeme zákonnú záruku. Sme si istí kvalitou našej práce, preto za vašu fasádu ručíme dlhšie, než vyžaduje zákon.",
+    title: "Extra záruka +365 dní v základu",
+    desc: "V tomto balíčku automaticky prodlužujeme zákonnou záruku. Jsme si jistí kvalitou naší práce, proto za vaši fasádu ručíme déle, než vyžaduje zákon.",
   },
   {
     num: "Bonus #2",
-    title: "Dokumentácia pre Obnov dom (Mini)",
-    desc: "Pripravíme za vás technickú dokumentáciu pre SAŽP: Zmluvu o dielo, podrobný súpis prác a potvrdenie o ekologickej likvidácii odpadu. Vy len podáte žiadosť, o zvyšok sa postaráme my.",
+    title: "Dokumentace pro dotační programy",
+    desc: "Připravíme za vás technickou dokumentaci: smlouvu o dílo, podrobný soupis prací a potvrzení o ekologické likvidaci odpadu. Vy jen podáte žádost, o zbytek se postaráme my.",
   },
   {
     num: "Bonus #3",
-    title: "Fixná cena lešenia (Žiadne doplatky)",
-    desc: "Na rozdiel od základného balíka, tu máte nájom lešenia už v cene diela. Neriskujete doplatky za prenájom lešenia pri nepriazni počasia. Máte istotu, že dohodnutá suma sa v priebehu prác nenavýši.",
+    title: "Fixní cena lešení (žádné doplatky)",
+    desc: "Na rozdíl od základního balíčku zde máte nájem lešení už v ceně díla. Neriskujete doplatky za pronájem lešení při nepřízni počasí. Máte jistotu, že dohodnutá částka se v průběhu prací nenavýší.",
   },
 ];
 
 const PACKAGES = [
   {
-    name: "Balík ISTOTA",
-    sub: "Základ poctivej fasády",
+    name: "Balíček JISTOTA",
+    sub: "Základ poctivé fasády",
     highlight: false,
     items: [
-      "Kompletný 10-krokový technologický postup ESPRON",
-      "Montáž / demontáž a dovoz lešenia",
-      "Ekologický odvoz a likvidácia odpadu",
+      "Kompletní 10krokový technologický postup ESPRON",
+      "Montáž / demontáž a doprava lešení",
+      "Ekologický odvoz a likvidace odpadu",
       "Zákonná záruka 2 roky",
     ],
     price: "94 €/m² (EPS) | 104 €/m² (Vata)",
   },
   {
-    name: "Balík BEZSTAROSTNOSŤ",
-    sub: "- Najobľúbenejší -",
+    name: "Balíček BEZSTAROSTI",
+    sub: "- Nejoblíbenější -",
     highlight: true,
     items: [
-      "Všetko z balíka ISTOTA",
-      "+ Extra záruka +365 dní navyše (spolu 3 roky)",
-      "+ Nájom lešenia v cene (Neriskujete doplatky za lešenie. Máte fixnú cenu počas celej realizácie)",
-      "+ Set ochrannej impregnácie (Ochráni fasádu pred vznikom plesní a machov)",
-      "+ Prioritný termín realizácie (Garancia nástupu v dohodnutom kalendárnom okne)",
-      "+ Dokumentácia Obnov dom (Mini) (Pripravíme za vás všetky technické podklady zo strany zhotoviteľa)",
-      "+ Denný foto-report (Každý večer dostanete na WhatsApp fotky z postupu prác pre vašu 100% kontrolu)",
+      "Vše z balíčku JISTOTA",
+      "+ Extra záruka +365 dní navíc (celkem 3 roky)",
+      "+ Nájem lešení v ceně (neriskujete doplatky za lešení. Máte fixní cenu po celou dobu realizace)",
+      "+ Sada ochranné impregnace (chrání fasádu před plísněmi a mechy)",
+      "+ Prioritní termín realizace (garance nástupu v dohodnutém kalendářním okně)",
+      "+ Dokumentace pro dotační programy (připravíme za vás veškeré technické podklady ze strany zhotovitele)",
+      "+ Denní foto-report (každý večer dostanete na WhatsApp fotky z průběhu prací pro vaši 100% kontrolu)",
     ],
     price: "99 €/m² (EPS) | 109 €/m² (Vata)",
   },
   {
-    name: "Balík REŠTART",
-    sub: "Pre najnáročnejších",
+    name: "Balíček RESTART",
+    sub: "Pro nejnáročnější",
     highlight: false,
     items: [
-      "Všetko z balíka BEZSTAROSTNOSŤ",
-      "+ Záruka 5 rokov na celistvosť a funkčnosť fasády",
-      "+ Odborná aplikácia impregnácie: Kompletné ošetrenie fasády naším tímom",
-      "+ Hĺbkové čistenie okolia: Profesionálne vyčistenie zámkovej dlažby a chodníkov priemyselnou vapkou",
-      "+ Čistenie strechy: Hĺbkové čistenie krytiny od machov a lišajníkov pre dokonalý vizuálny súlad s novou fasádou",
-      "+ Interiérový bonus: Profesionálne tepovanie gauča a kobercov, aby bol váš domov po rekonštrukcii ako nový aj vo vnútri",
+      "Vše z balíčku BEZSTAROSTI",
+      "+ Záruka 5 let na celistvost a funkčnost fasády",
+      "+ Odborná aplikace impregnace: kompletní ošetření fasády naším týmem",
+      "+ Hloubkové čištění okolí: profesionální vyčištění zámkové dlažby a chodníků průmyslovým WAPem",
+      "+ Čištění střechy: hloubkové čištění krytiny od mechů a lišejníků pro dokonalý vizuální soulad s novou fasádou",
+      "+ Interiérový bonus: profesionální tepování gauče a koberců, aby byl váš domov po rekonstrukci jako nový i uvnitř",
     ],
     price: "144 €/m² (EPS) | 149 €/m² (Vata)",
   },
@@ -95,28 +95,28 @@ const PACKAGES = [
 
 const FAQ = [
   {
-    question: "Pracujete po celom Slovensku?",
-    answer: "Áno, realizujeme zateplenia po celom Slovensku. Dochádzame bez príplatkov do všetkých lokalít.",
+    question: "Pracujete po celé České republice?",
+    answer: "Ano, zateplení realizujeme po celém Česku. Dojíždíme bez příplatků do všech lokalit.",
   },
   {
-    question: "Čo ak sa realizácia kvôli počasiu natiahne? Budem doplácať za lešenie?",
-    answer: "V balíku BEZSTAROSTNOSŤ a REŠTART máte nájom lešenia zahrnutý v cene. Neriskujete žiadne doplatky, nech trvá realizácia akokoľvek dlho.",
+    question: "Co když se realizace kvůli počasí protáhne? Budu doplácet za lešení?",
+    answer: "V balíčku BEZSTAROSTI a RESTART máte nájem lešení zahrnutý v ceně. Neriskujete žádné doplatky, ať už realizace trvá jakkoli dlouho.",
   },
   {
-    question: "Budem mať kontrolu nad prácou, aj keď nie som doma?",
-    answer: "Áno. V balíku BEZSTAROSTNOSŤ a REŠTART dostávate každý večer denný foto-report na WhatsApp s fotkami z postupu prác.",
+    question: "Budu mít kontrolu nad prací, i když nejsem doma?",
+    answer: "Ano. V balíčku BEZSTAROSTI a RESTART dostáváte každý večer denní foto-report na WhatsApp s fotkami z průběhu prací.",
   },
   {
-    question: "Ako je to s platbou?",
-    answer: "Po akceptovaní cenovej ponuky sa zaplatí záloha za materiál. Zvyšok sa doplatí po dokončení prác.",
+    question: "Jak je to s platbou?",
+    answer: "Po akceptaci cenové nabídky se platí záloha na materiál. Zbytek se doplatí po dokončení prací.",
   },
   {
-    question: "V akom stave zostane môj pozemok po vašom odchode?",
-    answer: "Ekologický odvoz a likvidácia odpadu je súčasťou každého balíka. Pozemok odovzdávame v poriadku.",
+    question: "V jakém stavu zůstane můj pozemek po vašem odchodu?",
+    answer: "Ekologický odvoz a likvidace odpadu jsou součástí každého balíčku. Pozemek předáváme v pořádku.",
   },
   {
-    question: "Môžem si dom zatepliť svojpomocne?",
-    answer: "Svojpomoc je možná, no odporúčame profesionálnu realizáciu – garantuje správny technologický postup, záruku a eliminuje riziko tepelných mostov či prasklín.",
+    question: "Můžu si dům zateplit svépomocí?",
+    answer: "Svépomoc je možná, ale doporučujeme profesionální realizaci – garantuje správný technologický postup, záruku a eliminuje riziko tepelných mostů či prasklin.",
   },
 ];
 
@@ -146,20 +146,20 @@ export default async function ZateplenieFasadyPage() {
  <div className="relative mx-auto grid w-[92%] gap-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <div className="max-w-4xl">
             <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
-              {page?.eyebrow ?? "Zateplenie fasády"}
+              {page?.eyebrow ?? "Zateplení fasády"}
             </p>
             <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
-              {page?.label ?? "Zateplenie fasády"}
+              {page?.label ?? "Zateplení fasády"}
             </h1>
             <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
               {page?.description}
             </p>
             <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
               <QuoteScrollButton className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90">
-                Kontaktovať nás
+                Kontaktovat nás
               </QuoteScrollButton>
               <Link href={`mailto:${CONTACT_INFO.email}`} className="rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors hover:bg-white/10">
-                Napísať e-mail
+                Napsat e-mail
               </Link>
             </div>
           </div>
@@ -180,32 +180,32 @@ export default async function ZateplenieFasadyPage() {
         titleSize="compact"
         title={
           <>
-            Kompletné zateplenie rodinných domov{" "}
-            <span className="underline underline-offset-4">kdekoľvek na Slovensku.</span>
+            Kompletní zateplení rodinných domů{" "}
+            <span className="underline underline-offset-4">kdekoli v Česku.</span>
             <br />
             <span className="font-light text-foreground/70">
-              Bez estetických chýb a skrytých poplatkov.
+              Bez estetických chyb a skrytých poplatků.
             </span>
           </>
         }
-        description="Vďaka práci zohraných 4-členných tímov a prísnym technologickým postupom eliminujeme bežné chyby, ako sú trhliny alebo viditeľné spoje na omietke."
-        secondaryDescription="Kým iní si tieto veci účtujú ako príplatky, my ich považujeme za základ slušne odvedenej práce:"
+        description="Díky práci sehraných 4členných týmů a přísným technologickým postupům eliminujeme běžné chyby, jako jsou trhliny nebo viditelné spoje na omítce."
+        secondaryDescription="Zatímco jiní si tyto věci účtují jako příplatky, my je považujeme za základ slušně odvedené práce:"
         bullets={[
-          "Postavenie a doprava lešenia",
-          "Kompletné zakrytie okien a dlažby",
-          "Odvoz a likvidácia odpadu",
+          "Postavení a doprava lešení",
+          "Kompletní zakrytí oken a dlažby",
+          "Odvoz a likvidace odpadu",
         ]}
         note={{
-          label: "Posledná šanca: Zateplenie za staré ceny",
+          label: "Poslední šance: zateplení za staré ceny",
           body: (
             <>
-              + Bonus <em>„Čistý domov“</em> (Tepovanie a strojové čistenie okolia domu)
+              + Bonus <em>„Čistý domov“</em> (tepování a strojové čištění okolí domu)
             </>
           ),
-          footer: "Posledné 2 voľné termíny",
+          footer: "Poslední 2 volné termíny",
         }}
         imageSrc="/images/realizacie/b0408c_2883303b07a4489798740af9878cc2db~mv2.avif"
-        imageAlt="Zateplenie fasády"
+        imageAlt="Zateplení fasády"
       />
 
       {/* ── INCLUDED ─────────────────────────────────────────────────── */}
@@ -213,9 +213,9 @@ export default async function ZateplenieFasadyPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll className="mb-14 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Všetky potrebné úkony v cene
+              Všechny potřebné úkony v ceně
             </h2>
-            <p className="mt-3 text-sm text-foreground/55">S nami máte garanciu kvality</p>
+            <p className="mt-3 text-sm text-foreground/55">S námi máte garanci kvality</p>
           </AnimateOnScroll>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
             {INCLUDED.map((item, index) => (
@@ -235,11 +235,11 @@ export default async function ZateplenieFasadyPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll className="mb-14 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Prečo naši klienti milujú balík <span className="uppercase">BEZSTAROSTNOSŤ</span>
+              Proč naši klienti milují balíček <span className="uppercase">BEZSTAROSTI</span>
             </h2>
             <p className="mt-3 text-sm text-foreground/55">
-              Tieto výhody nájdete v našom najobľúbenejšom balíku, ktorý volí až{" "}
-              <strong>85 % majiteľov domov.</strong>
+              Tyto výhody najdete v našem nejoblíbenějším balíčku, který volí až{" "}
+              <strong>85 % majitelů domů.</strong>
             </p>
           </AnimateOnScroll>
           <div className="grid gap-8 md:grid-cols-3">
@@ -261,10 +261,10 @@ export default async function ZateplenieFasadyPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll className="mb-14 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Jasné ceny bez skrytých poplatkov
+              Jasné ceny bez skrytých poplatků
             </h2>
             <p className="mt-3 text-sm text-foreground/55">
-              Vyberte si úroveň starostlivosti, ktorá najviac vyhovuje vašim plánom
+              Vyberte si úroveň péče, která nejvíce vyhovuje vašim plánům
             </p>
           </AnimateOnScroll>
           <div className="grid gap-6 md:grid-cols-3">
@@ -307,27 +307,27 @@ export default async function ZateplenieFasadyPage() {
       <section className="bg-primary py-20 text-center md:py-28">
         <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-amber-400">
-            Posledné 2 voľné termíny
+            Poslední 2 volné termíny
           </p>
           <h2 className="text-2xl font-extrabold uppercase tracking-tight text-white md:text-3xl lg:text-4xl">
-            (3 z 5 sú už obsadené)
+            (3 z 5 jsou už obsazené)
           </h2>
           <p className="mt-6 text-base leading-8 text-white/70">
-            Zabezpečte si miesto v kalendári za aktuálne ceny, kým nezačne hlavná sezóna.
+            Zajistěte si místo v kalendáři za aktuální ceny, než začne hlavní sezóna.
           </p>
           <p className="mt-6 text-sm leading-8 text-white/70">
-            Rezervujte si zateplenie teraz a získajte Bonus „KOMPLETNÝ REŠTART&quot; v hodnote{" "}
-            <strong className="text-amber-400">750 €</strong> úplne zadarmo:
+            Rezervujte si zateplení teď a získejte bonus „KOMPLETNÍ RESTART&quot; v hodnotě{" "}
+            <strong className="text-amber-400">750 €</strong> úplně zdarma:
           </p>
           <ul className="mt-4 space-y-2 text-sm font-semibold text-white/90">
-            <li>+ Hĺbkové tepovanie sedačky a kobercov</li>
-            <li>+ Strojové čistenie okolia domu profi technikou</li>
+            <li>+ Hloubkové tepování sedačky a koberců</li>
+            <li>+ Strojové čištění okolí domu profi technikou</li>
           </ul>
           <Link
             href="/kontakt"
             className="mt-10 inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-sm font-bold text-primary transition-colors hover:bg-white/90"
           >
-            Chcem si zabezpečiť termín
+            Chci si zajistit termín
           </Link>
         </AnimateOnScroll>
       </section>
@@ -337,7 +337,7 @@ export default async function ZateplenieFasadyPage() {
         <div className="mx-auto w-[92%] max-w-3xl">
           <AnimateOnScroll>
             <h2 className="mb-10 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Často sa nás pýtate (FAQ)
+              Často se nás ptáte (FAQ)
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll delay={80}>
@@ -345,7 +345,7 @@ export default async function ZateplenieFasadyPage() {
           </AnimateOnScroll>
           <AnimateOnScroll delay={120}>
             <p className="mt-10 text-sm text-foreground/55">
-              Ďalšie najčastejšie otázky a odpovede nájdete na{" "}
+              Další nejčastější otázky a odpovědi najdete na{" "}
               <Link href="/zateplenie-fasady/faq" className="text-primary underline underline-offset-2 hover:opacity-70">
                 /zateplenie-fasady/faq
               </Link>
@@ -361,10 +361,10 @@ export default async function ZateplenieFasadyPage() {
       >
         <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Máte záujem o cenovú ponuku na zateplenie fasády?
+            Máte zájem o cenovou nabídku na zateplení fasády?
           </h2>
           <p className="mb-10 text-sm text-foreground/55">
-            Po obdržaní informácií vám pošleme cenovú ponuku do 1–2 pracovných dní.
+            Po obdržení informací vám pošleme cenovou nabídku do 1–2 pracovních dnů.
           </p>
           <InsulationQuoteForm />
         </AnimateOnScroll>

@@ -6,18 +6,18 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 export const metadata: Metadata = {
   title: "O nás | ESPRON",
   description:
-    "Sme ESPRON – stavebná spoločnosť, ktorá spája odbornosť, transparentnosť a osobný prístup. Zistite, prečo sme vznikli a kto tvorí náš tím.",
+    "Jsme ESPRON – stavební společnost, která spojuje odbornost, transparentnost a osobní přístup. Zjistěte, proč jsme vznikli a kdo tvoří náš tým.",
 };
 
 const TEAM = [
   {
     name: "Ing. arch. Lucia Richnavská",
-    role: "Riaditeľka interiérového dizajnu",
+    role: "Ředitelka interiérového designu",
     image: "/lucia.avif",
   },
   {
     name: "Mgr. Tomáš Richnavský",
-    role: "Riaditeľ predaja",
+    role: "Ředitel prodeje",
     image: "/tomas.avif",
   },
 ];
@@ -25,17 +25,23 @@ const TEAM = [
 const SERVICES = [
   {
     href: "/zateplenie-fasady",
-    label: "Zatepľovacie práce",
+    label: "Zateplovací práce",
     image: "/images/realizacie/b0408c_2883303b07a4489798740af9878cc2db~mv2.avif",
   },
   {
+    href: "/zakladove-dosky",
+    label: "Základové desky",
+    image:
+      "https://static.wixstatic.com/media/11062b_52669a954ee44f869d54e8018d13f653~mv2.jpg",
+  },
+  {
     href: "/interierovy-dizajn",
-    label: "Interiérový dizajn",
+    label: "Interiérový design",
     image: "/images/interier.jpg",
   },
   {
     href: "/cistenie-fasady",
-    label: "Čistenie fasády",
+    label: "Čištění fasády",
     image: "/images/cistenie.jpg",
   },
 ];
@@ -54,12 +60,12 @@ export default function ONasPage() {
             O nás
           </h1>
           <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
-            Stavebná spoločnosť, ktorá spája odbornosť, transparentnosť a osobný prístup.
+            Stavební společnost, která spojuje odbornost, transparentnost a osobní přístup.
           </p>
         </div>
       </section>
 
-      {/* ── PREČO VZNIKOL ESPRON ─────────────────────────────────────── */}
+      {/* ── PROČ VZNIKL ESPRON ───────────────────────────────────────── */}
       <section className="py-20 md:py-28">
         <div className="mx-auto grid w-[92%] gap-12 lg:grid-cols-[420px_minmax(0,1fr)] lg:items-start">
           <div className="order-2 grid gap-4 sm:grid-cols-2 lg:order-1 lg:max-w-[420px]">
@@ -85,16 +91,16 @@ export default function ONasPage() {
           {/* Text */}
           <AnimateOnScroll className="order-1 lg:order-2 lg:pt-4 lg:pl-8 xl:pl-14">
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Prečo vznikol ESPRON
+              Proč vznikl ESPRON
             </h2>
             <p className="mt-6 text-sm leading-7 text-foreground/70">
-              Všetko to začalo, keď sme sa pustili do rekonštrukcie vlastného domu. S nadšením, ale aj obavami, sme stáli pred otázkami, ktoré pozná takmer každý:
+              Všechno začalo, když jsme se pustili do rekonstrukce vlastního domu. S nadšením, ale i s obavami, jsme stáli před otázkami, které zná téměř každý:
             </p>
             <ul className="mt-4 space-y-2">
               {[
-                "Kde nájsť spoľahlivého majstra, ktorý svoju prácu naozaj ľúbi?",
-                "Ako sa vyhnúť zbytočnému predražovaniu, vykrúcaniam a nekonečnému ťahaniu?",
-                "Dá sa projekt zvládnuť načas – bez stresu a zbytočných kompromisov?",
+                "Kde najít spolehlivého řemeslníka, který svou práci opravdu miluje?",
+                "Jak se vyhnout zbytečnému předražování, výmluvám a nekonečnému protahování?",
+                "Dá se projekt zvládnout včas – bez stresu a zbytečných kompromisů?",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-foreground/75">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,17 +111,17 @@ export default function ONasPage() {
               ))}
             </ul>
             <p className="mt-6 text-sm leading-7 text-foreground/70">
-              Naša vlastná skúsenosť nám na vlastnej koži ukázala mnohé nedostatky. Nedodržané termíny, slabá komunikácia a nekvalitnosť boli na dennom poriadku.
+              Naše vlastní zkušenost nám na vlastní kůži ukázala řadu nedostatků. Nedodržené termíny, slabá komunikace a nekvalitní práce byly na denním pořádku.
             </p>
             <p className="mt-4 text-sm leading-7 text-foreground/70">
-              Preto sme si uvedomili, že musí existovať lepší spôsob, ako robiť stavebné projekty – firmou, spoľahlivo a s rešpektom k zákazníkom.
+              Proto jsme si uvědomili, že musí existovat lepší způsob, jak dělat stavební projekty – profesionálně, spolehlivě a s respektem k zákazníkům.
             </p>
             <p className="mt-4 text-sm leading-7 text-foreground/70">
-              A tak vznikol <strong className="text-foreground">ESPRON</strong> – spoločnosť, ktorá spája odbornosť, transparentnosť a osobný prístup.
+              A tak vznikl <strong className="text-foreground">ESPRON</strong> – společnost, která spojuje odbornost, transparentnost a osobní přístup.
             </p>
             <p className="mt-4 text-sm leading-7 text-foreground/70">
-              Naším cieľom je priniesť do stavebníctva to, čo nám samotným chýbalo:{" "}
-              <strong className="text-foreground">dôveru, kvalitu a výsledky, na ktoré sa môžete spoľahnúť.</strong>
+              Naším cílem je přinést do stavebnictví to, co nám samotným chybělo:{" "}
+              <strong className="text-foreground">důvěru, kvalitu a výsledky, na které se můžete spolehnout.</strong>
             </p>
           </AnimateOnScroll>
         </div>
@@ -126,13 +132,13 @@ export default function ONasPage() {
         <div className="mx-auto w-[92%] text-center">
           <AnimateOnScroll>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Tešíme sa na spoluprácu
+              Těšíme se na spolupráci
             </h2>
             <p className="mt-3 text-base text-foreground/60">
-              Už si len stačí vybrať niektorú z našich služieb
+              Už si jen stačí vybrat některou z našich služeb
             </p>
           </AnimateOnScroll>
-          <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SERVICES.map((s, index) => (
               <AnimateOnScroll key={s.href} delay={index * 80}>
                 <Link
@@ -144,7 +150,7 @@ export default function ONasPage() {
                       src={s.image}
                       alt={s.label}
                       fill
-                      sizes="(max-width: 640px) 95vw, 33vw"
+                      sizes="(max-width: 640px) 95vw, 25vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-primary-dark/55 transition-opacity duration-300 group-hover:bg-primary-dark/40" />
@@ -152,7 +158,7 @@ export default function ONasPage() {
                       <div>
                         <p className="text-lg font-bold text-white">{s.label}</p>
                         <p className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-white/70 transition-colors group-hover:text-white">
-                          Zistiť viac
+                          Zjistit více
                           <svg className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>

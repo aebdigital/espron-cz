@@ -6,59 +6,59 @@ import ServiceRealizationGallery from "@/components/site/ServiceRealizationGalle
 import InterierQuoteForm from "@/components/site/InterierQuoteForm";
 import QuoteScrollButton from "@/components/site/QuoteScrollButton";
 import ServiceIntroSection from "@/components/site/ServiceIntroSection";
-import { PAGE_OVERRIDES } from "@/lib/site-navigation";
+import { CONTACT_INFO, PAGE_OVERRIDES } from "@/lib/site-navigation";
 
 export const metadata: Metadata = {
-  title: "Interiérový dizajn | ESPRON",
+  title: "Interiérový design | ESPRON",
   description:
-    "Interiérový dizajn pre rodinné domy, byty a komerčné priestory. Ponúkame po celom Slovensku. Dispozičný návrh od 200 EUR.",
+    "Interiérový design pro rodinné domy, byty a komerční prostory. Nabízíme po celém Česku. Dispoziční návrh od 200 EUR.",
 };
 
 const CITIES =
-  "Bratislava, Nitra, Košice, Prešov, Poprad, Spišská Nová Ves, Žilina, Banská Bystrica, Trnava, Trenčín, Martin, Liptovský Mikuláš a ich okolí";
+  "Praha, Brno, Ostrava, Plzeň, Olomouc, Liberec, Hradec Králové, České Budějovice, Ústí nad Labem, Pardubice a jejich okolí";
 
 const STEPS = [
   {
     num: "1",
-    title: "Koncept a analýza (1–2 týždne)",
-    desc: "Dizajnér sa spojí s klientom. Toto stretnutie prebehne online. Cieľom je pochopiť potreby klienta a zistiť, akým spôsobom bude priestor používaný. Dizajnér si dôkladne prezrie priestor, ktorý má byť navrhnutý. Pozoruje dispozíciu miestností, svetelné podmienky, výšku stropov, umiestnenie okien a dverí. Na základe analýzy a pochopenia potrieb klienta sa definujú ciele projektu. Vytvorí sa koncept, ktorý zahŕňa návrhy na zmenu dispozície, výber farieb, materiálov a nábytku.",
+    title: "Koncept a analýza (1–2 týdny)",
+    desc: "Designer se spojí s klientem. Setkání proběhne online. Cílem je pochopit potřeby klienta a zjistit, jakým způsobem bude prostor používán. Designer si důkladně prohlédne prostor, který má být navržen. Pozoruje dispozici místností, světelné podmínky, výšku stropů, umístění oken a dveří. Na základě analýzy a pochopení potřeb klienta se definují cíle projektu. Vytvoří se koncept, který zahrnuje návrhy na změnu dispozice, výběr barev, materiálů a nábytku.",
   },
   {
     num: "2",
-    title: "Vizualizácia (2–4 týždne)",
-    desc: "Na základe cieľa projektu sa vytvoria 2D plány a 3D modely priestoru. 2D plány obsahujú umiestnenie stien, dverí, okien, elektrických rozvodov a potrubí. Na plánoch sú zobrazené aj rozmery miestností a nábytku. 3D modely umožňujú klientovi vidieť, ako bude priestor vyzerať z rôznych uhlov — s farbami stien, nábytkom, osvetlením a ďalšími detailmi. Výsledkom sú realistické obrázky alebo animácie, ktoré klientovi pomáhajú lepšie pochopiť návrh a rozhodovať sa.",
+    title: "Vizualizace (2–4 týdny)",
+    desc: "Na základě cíle projektu se vytvoří 2D plány a 3D modely prostoru. 2D plány obsahují umístění stěn, dveří, oken, elektrických rozvodů a potrubí. Na plánech jsou zobrazeny i rozměry místností a nábytku. 3D modely umožňují klientovi vidět, jak bude prostor vypadat z různých úhlů – s barvami stěn, nábytkem, osvětlením a dalšími detaily. Výsledkem jsou realistické obrázky nebo animace, které klientovi pomáhají lépe pochopit návrh a rozhodovat se.",
   },
   {
     num: "3",
-    title: "Výber materiálov a nábytku (1–2 týždne)",
-    desc: "V tejto fáze dizajnér spolu s klientom vyberajú materiály, ktoré sa použijú, pričom berú do úvahy estetiku a praktické aspekty priestoru.",
+    title: "Výběr materiálů a nábytku (1–2 týdny)",
+    desc: "V této fázi designer společně s klientem vybírá materiály, které se použijí, a zohledňuje estetické i praktické aspekty prostoru.",
   },
   {
     num: "4",
-    title: "Realizácia interiéru",
-    desc: "Po schválení návrhu klientom začneme s realizáciou. Tá zahŕňa nákup materiálu, stavebné práce a dohľad nad celým procesom.",
+    title: "Realizace interiéru",
+    desc: "Po schválení návrhu klientem začneme s realizací. Ta zahrnuje nákup materiálu, stavební práce a dohled nad celým procesem.",
   },
 ];
 
 const WHY = [
   {
-    title: "Optimalizácia priestoru",
-    desc: "Naši dizajnéri majú skúsenosti s efektívnym využívaním priestoru. Pomôžu vám získať maximálny potenciál z každej miestnosti, či už ide o byt, dom alebo komerčný priestor.",
+    title: "Optimalizace prostoru",
+    desc: "Naši designéři mají zkušenosti s efektivním využíváním prostoru. Pomohou vám získat maximální potenciál z každé místnosti, ať už jde o byt, dům nebo komerční prostor.",
   },
   {
     title: "Úspora času a stresu",
-    desc: "Nemusíte strácať čas hľadaním inšpirácie, výberom farieb a nábytku. Máme prehľad o aktuálnych trendoch a dokážeme vám pomôcť sa rýchlo rozhodnúť.",
+    desc: "Nemusíte ztrácet čas hledáním inspirace, výběrem barev a nábytku. Máme přehled o aktuálních trendech a dokážeme vám pomoci se rychle rozhodnout.",
   },
   {
-    title: "Zapracovanie osobných preferencií",
-    desc: "Každý klient má svoj osobný štýl a preferencie. Dbáme na to, aby sme zohľadnili všetky preferencie a vytvorili unikátny dizajn, ktorý bude odrážať osobnosť klienta.",
+    title: "Zapracování osobních preferencí",
+    desc: "Každý klient má svůj osobní styl a preference. Dbáme na to, abychom zohlednili všechny preference a vytvořili jedinečný design, který bude odrážet osobnost klienta.",
   },
 ];
 
 const PRICING = [
-  { label: "Dispozičný návrh", price: "od 200 EUR" },
-  { label: "3D vizualizácie", price: "od 550 EUR" },
-  { label: "Vypracovanie projektu", price: "od 950 EUR" },
+  { label: "Dispoziční návrh", price: "od 200 EUR" },
+  { label: "3D vizualizace", price: "od 550 EUR" },
+  { label: "Vypracování projektu", price: "od 950 EUR" },
 ];
 
 const CATEGORY = PAGE_OVERRIDES["/interierovy-dizajn"].eyebrow;
@@ -74,17 +74,17 @@ export default function InterierovyDizajnPage() {
             {CATEGORY}
           </p>
           <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
-            Interiérový dizajn
+            Interiérový design
           </h1>
           <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
-            Interiérový dizajn predstavuje ideálne riešenie pre vlastníkov rodinných domov, bytových domov a komerčných budov, ktorí chcú vytvoriť príjemné a atraktívne prostredie pre seba alebo svojich zákazníkov.
+            Interiérový design představuje ideální řešení pro majitele rodinných domů, bytových domů a komerčních budov, kteří chtějí vytvořit příjemné a atraktivní prostředí pro sebe nebo své zákazníky.
           </p>
           <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
             <QuoteScrollButton className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90">
-              Kontaktovať nás
+              Kontaktovat nás
             </QuoteScrollButton>
-            <Link href="mailto:info@espron.sk" className="rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors hover:bg-white/10">
-              Napísať e-mail
+            <Link href={`mailto:${CONTACT_INFO.email}`} className="rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors hover:bg-white/10">
+              Napsat e-mail
             </Link>
           </div>
         </div>
@@ -92,26 +92,26 @@ export default function InterierovyDizajnPage() {
 
       <ServiceIntroSection
         eyebrow={CATEGORY}
-        title="Interiérový dizajn, ktorý začne praktickou dispozíciou"
-        subtitle="Od prvého konceptu po realizáciu priestoru, v ktorom sa dobre žije."
-        description="Navrhneme riešenie pre byty, rodinné domy aj komerčné priestory tak, aby dobre fungovalo v každodennom používaní a zároveň pôsobilo prirodzene."
+        title="Interiérový design, který začne praktickou dispozicí"
+        subtitle="Od prvního konceptu po realizaci prostoru, ve kterém se dobře žije."
+        description="Navrhneme řešení pro byty, rodinné domy i komerční prostory tak, aby dobře fungovalo v každodenním používání a zároveň působilo přirozeně."
         bullets={[
-          "Dispozičný návrh a analýza priestoru",
-          "3D vizualizácie, materiály a nábytok",
-          "Možnosť nadviazať priamo na realizáciu interiéru",
+          "Dispoziční návrh a analýza prostoru",
+          "3D vizualizace, materiály a nábytek",
+          "Možnost navázat přímo na realizaci interiéru",
         ]}
         imageSrc="/images/interier.jpg"
-        imageAlt="Interiérový dizajn"
+        imageAlt="Interiérový design"
       />
 
       {/* ── COVERAGE ─────────────────────────────────────────────────── */}
       <section className="border-b border-border bg-light py-10">
         <AnimateOnScroll className="mx-auto w-[92%]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-            Ponúkame po celom Slovensku
+            Nabízíme po celém Česku
           </p>
           <p className="mt-2 text-sm leading-7 text-foreground/65">
-            V mestách {CITIES}.
+            Ve městech {CITIES}.
           </p>
         </AnimateOnScroll>
       </section>
@@ -121,10 +121,10 @@ export default function InterierovyDizajnPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll className="mb-14">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-              Interiérový dizajn
+              Interiérový design
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Postup prác
+              Postup prací
             </h2>
           </AnimateOnScroll>
           <div className="grid gap-8 md:grid-cols-2">
@@ -148,10 +148,10 @@ export default function InterierovyDizajnPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll className="mb-14">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-              Interiérový dizajn
+              Interiérový design
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Prečo si nechať urobiť interiérový dizajn od profesionálnej firmy?
+              Proč si nechat udělat interiérový design od profesionální firmy?
             </h2>
           </AnimateOnScroll>
           <div className="grid gap-6 md:grid-cols-3">
@@ -172,7 +172,7 @@ export default function InterierovyDizajnPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll className="mb-14">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-              Interiérový dizajn
+              Interiérový design
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Cena
@@ -199,14 +199,14 @@ export default function InterierovyDizajnPage() {
         <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <div className="mb-3">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-              Interiérový dizajn
+              Interiérový design
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Ako nás kontaktovať?
+              Jak nás kontaktovat?
             </h2>
           </div>
           <p className="mb-10 text-sm text-foreground/55">
-            Po obdržaní informácií vám pošleme cenovú ponuku max do 5 dní (zvyčajne do 1–2 dní). Po akceptovaní cenovej ponuky si stanovíme termín prvého odovzdania návrhov. Pred začiatkom prác sa zaplatí záloha.
+            Po obdržení informací vám pošleme cenovou nabídku maximálně do 5 dnů (obvykle do 1–2 dnů). Po akceptaci cenové nabídky si stanovíme termín prvního předání návrhů. Před zahájením prací se platí záloha.
           </p>
           <InterierQuoteForm />
         </AnimateOnScroll>

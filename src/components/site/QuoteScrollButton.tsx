@@ -13,7 +13,7 @@ type QuoteScrollButtonProps = {
 export default function QuoteScrollButton({
   children,
   className = "",
-  label = "Kontaktovať nás",
+  label = "Kontaktovat nás",
   targetId = "cenova-ponuka",
 }: QuoteScrollButtonProps) {
   return (

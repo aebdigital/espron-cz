@@ -8,33 +8,33 @@ import ServiceRealizationGallery from "@/components/site/ServiceRealizationGalle
 import QuoteScrollButton from "@/components/site/QuoteScrollButton";
 import ServiceIntroSection from "@/components/site/ServiceIntroSection";
 import { CISTENIE_FASADY_REALIZATIONS } from "@/lib/legacy-gallery-data";
-import { PAGE_OVERRIDES } from "@/lib/site-navigation";
+import { CONTACT_INFO, PAGE_OVERRIDES } from "@/lib/site-navigation";
 
 export const metadata: Metadata = {
-  title: "Čistenie fasády | ESPRON",
+  title: "Čištění fasády | ESPRON",
   description:
-    "Profesionálnym čistením sa zbavte nevzhľadných zelených škvrn, machov a plesní a eliminujte možné alergie. Čistenie fasády 5,5 – 9,5 EUR/m².",
+    "Profesionálním čištěním se zbavte nevzhledných zelených skvrn, mechů a plísní a eliminujte možné alergie. Čištění fasády 5,5 – 9,5 EUR/m².",
 };
 
 const PROBLEMS = [
-  { label: "Tvorba plesní a machov" },
-  { label: "Degradácia stavebných materiálov" },
-  { label: "Zníženie izolačných vlastností" },
-  { label: "Zníženie estetickej hodnoty" },
+  { label: "Tvorba plísní a mechů" },
+  { label: "Degradace stavebních materiálů" },
+  { label: "Snížení izolačních vlastností" },
+  { label: "Snížení estetické hodnoty" },
 ];
 
 const WHY = [
   {
-    title: "Odbornosť",
-    desc: "Práce vykonávané pod dohľadom autorizovaného stavbyvedúceho na Slovensku a v Česku.",
+    title: "Odbornost",
+    desc: "Práce prováděné pod dohledem autorizovaného stavbyvedoucího v Česku i na Slovensku.",
   },
   {
-    title: "Špecialistu na práce v interiéri a exteriéri",
-    desc: "Ponúkame komplexné stavebné práce, vrátane interiérových a exteriérových úprav.",
+    title: "Specialisté na práce v interiéru i exteriéru",
+    desc: "Nabízíme komplexní stavební práce včetně interiérových a exteriérových úprav.",
   },
   {
-    title: "Pôsobíme na celom Slovensku",
-    desc: "V mestách Bratislava, Nitra, Košice, Prešov, Poprad, Spišská Nová Ves, Žilina, Banská Bystrica, Trnava, Trenčín, Martin, Liptovský Mikuláš a ich okolí.",
+    title: "Působíme po celém Česku",
+    desc: "V Praze, Brně, Ostravě, Plzni, Olomouci, Liberci, Hradci Králové, Českých Budějovicích, Ústí nad Labem, Pardubicích a v jejich okolí.",
   },
 ];
 
@@ -51,21 +51,21 @@ export default function CistenieFasadyPage() {
             {CATEGORY}
           </p>
           <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
-            Čistenie fasády
+            Čištění fasády
           </h1>
           <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
-            Profesionálne čistenie fasády, ktoré odstráni machy, plesne a zelené škvrny
-            a pomôže vrátiť domu čistý a udržiavaný vzhľad.
+            Profesionální čištění fasády, které odstraní mechy, plísně a zelené skvrny
+            a pomůže vrátit domu čistý a udržovaný vzhled.
           </p>
           <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
             <QuoteScrollButton className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90">
-              Kontaktovať nás
+              Kontaktovat nás
             </QuoteScrollButton>
             <Link
-              href="mailto:info@espron.sk"
+              href={`mailto:${CONTACT_INFO.email}`}
               className="rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors hover:bg-white/10"
             >
-              Napísať e-mail
+              Napsat e-mail
             </Link>
           </div>
         </div>
@@ -73,11 +73,11 @@ export default function CistenieFasadyPage() {
 
       <ServiceIntroSection
         eyebrow={CATEGORY}
-        title="Čistenie fasády"
-        subtitle="Vráťte svojmu domu pôvodný šmrnc"
-        description="Profesionálnym čistením sa zbavte nevzhľadných zelených škvrn, machov a plesní a eliminujte možné alergie."
+        title="Čištění fasády"
+        subtitle="Vraťte svému domu původní šmrnc"
+        description="Profesionálním čištěním se zbavte nevzhledných zelených skvrn, mechů a plísní a eliminujte možné alergie."
         imageSrc="/images/old-site/cistenie-fasady/tatranska-lomnica-03.webp"
-        imageAlt="Čistenie fasády"
+        imageAlt="Čištění fasády"
         titleSize="large"
       />
 
@@ -86,7 +86,7 @@ export default function CistenieFasadyPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll>
             <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Problémy spôsobené špinavou fasádou
+              Problémy způsobené špinavou fasádou
             </h2>
           </AnimateOnScroll>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -111,22 +111,22 @@ export default function CistenieFasadyPage() {
         <div className="mx-auto grid w-[92%] gap-12 lg:grid-cols-2 lg:items-center">
           <AnimateOnScroll>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Kto sa o vás postará?
+              Kdo se o vás postará?
             </h2>
             <p className="mt-2 text-lg font-medium text-foreground/60">
-              Sme ESPRON stavebná spoločnosť s ľudským prístupom
+              Jsme ESPRON – stavební společnost s lidským přístupem
             </p>
             <p className="mt-6 text-sm leading-7 text-foreground/70">
-              Rozumieme, že stavebné projekty sú finančne náročné a že za každým z nich stoja ľudia so svojimi snami a očakávaniami. Nie je to len o odbornosti, ale aj o ľudskom porozumení. Našou prioritou je transparentnosť a otvorená komunikácia s klientom.
+              Rozumíme tomu, že stavební projekty jsou finančně náročné a že za každým z nich stojí lidé se svými sny a očekáváními. Nejde jen o odbornost, ale také o lidské porozumění. Naší prioritou je transparentnost a otevřená komunikace s klientem.
             </p>
             <p className="mt-4 text-sm leading-7 text-foreground/70">
-              Sme firma zo Spišskej Novej Vsi pôsobiaca po celom Slovensku a Česku. Poskytujeme kvalitné a odborné stavebné služby pod dohľadom certifikovaného stavbyvedúceho v oboch krajinách.
+              Jsme firma působící po celém Česku i na Slovensku. Poskytujeme kvalitní a odborné stavební služby pod dohledem certifikovaného stavbyvedoucího v obou zemích.
             </p>
             <Link
               href="/o-nas"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90"
             >
-              Viac o nás a našich hodnotách
+              Více o nás a našich hodnotách
             </Link>
           </AnimateOnScroll>
           <AnimateOnScroll delay={120} className="relative hidden aspect-[3/4] max-h-[480px] overflow-hidden rounded-3xl lg:block">
@@ -146,7 +146,7 @@ export default function CistenieFasadyPage() {
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll>
             <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Prečo vyčistiť fasádu s nami?
+              Proč vyčistit fasádu s námi?
             </h2>
           </AnimateOnScroll>
           <div className="grid gap-8 md:grid-cols-3">
@@ -172,22 +172,22 @@ export default function CistenieFasadyPage() {
         <div className="mx-auto w-[92%] max-w-3xl">
           <AnimateOnScroll>
             <h2 className="mb-10 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Cena čistenia fasády
+              Cena čištění fasády
             </h2>
             <p className="mb-8 text-sm leading-7 text-foreground/70">
-              S nami nemusíte hádať, aká bude cena po tom, čo nás kontaktujete. Transparentne uvádzame rozpätie, v ktorom sa ceny pohybujú. Cena zahŕňa všetky potrebné práce, vrátane rozloženia lešenia, aplikácie čistiacich a impregnačných prostriedkov a dôkladného opláchnutia.
+              S námi nemusíte hádat, jaká bude cena poté, co nás kontaktujete. Transparentně uvádíme rozpětí, ve kterém se ceny pohybují. Cena zahrnuje všechny potřebné práce, včetně postavení lešení, aplikace čisticích a impregnačních prostředků a důkladného opláchnutí.
             </p>
           </AnimateOnScroll>
           <div className="space-y-3">
             <AnimateOnScroll delay={60}>
               <div className="rounded-2xl border border-border bg-white p-6 shadow-[0_8px_24px_rgba(15,29,74,0.05)]">
-                <span className="font-bold text-foreground">Čistenie fasády:</span>{" "}
+                <span className="font-bold text-foreground">Čištění fasády:</span>{" "}
                 <span className="text-foreground/75">5,5 – 9,5 EUR/m²</span>
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll delay={120}>
               <div className="rounded-2xl border border-border bg-white p-6 shadow-[0_8px_24px_rgba(15,29,74,0.05)]">
-                <span className="font-bold text-foreground">Impregnácia fasády:</span>{" "}
+                <span className="font-bold text-foreground">Impregnace fasády:</span>{" "}
                 <span className="text-foreground/75">0,5 – 1,5 EUR/m²</span>
               </div>
             </AnimateOnScroll>
@@ -202,10 +202,10 @@ export default function CistenieFasadyPage() {
       >
         <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl">
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Ako nás kontaktovať?
+            Jak nás kontaktovat?
           </h2>
           <p className="mb-10 text-sm text-foreground/55">
-            Po obdržaní informácií vám pošleme cenovú ponuku max do 5 dní (zvyčajne do 1–2 dní). Po akceptovaní cenovej ponuky si stanovíme termín realizácie.
+            Po obdržení informací vám pošleme cenovou nabídku maximálně do 5 dnů (obvykle do 1–2 dnů). Po akceptaci cenové nabídky si stanovíme termín realizace.
           </p>
           <CistenieFasadyQuoteForm />
         </AnimateOnScroll>

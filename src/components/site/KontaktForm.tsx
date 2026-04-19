@@ -30,14 +30,14 @@ export default function KontaktForm() {
       name: data.meno,
       email: data.email,
       phone: data.telefon,
-      subject: "Kontaktný formulár – ESPRON",
+      subject: "Kontaktní formulář – ESPRON",
       message: data.sprava,
     });
     setSending(false);
     if (result.success) {
       setSent(true);
     } else {
-      setError(result.error ?? "Odoslanie zlyhalo. Skúste nás kontaktovať priamo.");
+      setError(result.error ?? "Odeslání selhalo. Zkuste nás kontaktovat přímo.");
     }
   }
 
@@ -49,9 +49,9 @@ export default function KontaktForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-xl font-bold text-foreground">Ďakujeme!</h3>
+        <h3 className="text-xl font-bold text-foreground">Děkujeme!</h3>
         <p className="max-w-sm text-sm text-foreground/60">
-          Správa bola odoslaná. Ozveme sa vám čo najskôr.
+          Zpráva byla odeslána. Ozveme se vám co nejdříve.
         </p>
       </div>
     );
@@ -62,11 +62,11 @@ export default function KontaktForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm font-medium text-foreground/70">
-            Meno a priezvisko
+            Jméno a příjmení
           </label>
           <input
             type="text"
-            placeholder="Ján Novák"
+            placeholder="Jan Novák"
             value={data.meno}
             onChange={(e) => set("meno", e.target.value)}
             className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
@@ -74,11 +74,11 @@ export default function KontaktForm() {
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-foreground/70">
-            Telefón
+            Telefon
           </label>
           <input
             type="tel"
-            placeholder="+421 9xx xxx xxx"
+            placeholder="+420 7xx xxx xxx"
             value={data.telefon}
             onChange={(e) => set("telefon", e.target.value)}
             className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
@@ -100,12 +100,12 @@ export default function KontaktForm() {
       </div>
       <div>
         <label className="mb-1.5 block text-sm font-medium text-foreground/70">
-          Správa
+          Zpráva
         </label>
         <textarea
           rows={5}
           required
-          placeholder="Opíšte váš projekt alebo otázku…"
+          placeholder="Popište svůj projekt nebo otázku…"
           value={data.sprava}
           onChange={(e) => set("sprava", e.target.value)}
           className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
@@ -119,7 +119,7 @@ export default function KontaktForm() {
         disabled={sending}
         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:opacity-60"
       >
-        {sending ? "Odosiela sa…" : "Odoslať správu"}
+        {sending ? "Odesílá se…" : "Odeslat zprávu"}
         {!sending && (
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

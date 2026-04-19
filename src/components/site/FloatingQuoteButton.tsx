@@ -9,7 +9,7 @@ type FloatingQuoteButtonProps = {
 
 export default function FloatingQuoteButton({
   targetId = "cenova-ponuka",
-  label = "Cenová ponuka",
+  label = "Cenová nabídka",
 }: FloatingQuoteButtonProps) {
   return (
     <button

@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function RealizacieLightboxSection({
-  eyebrow = "Realizácie",
+  eyebrow = "Realizace",
   title,
   description,
   items,
@@ -89,7 +89,7 @@ export default function RealizacieLightboxSection({
                 type="button"
                 onClick={() => setActiveIndex(index)}
                 className="group block w-full overflow-hidden rounded-[1.75rem] border border-border bg-white text-left shadow-[0_12px_40px_rgba(15,29,74,0.06)] transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/40"
-                aria-label={`Otvoriť: ${item.title}`}
+                aria-label={`Otevřít: ${item.title}`}
               >
                 <div className="relative aspect-[4/3]">
                   <Image
@@ -128,7 +128,7 @@ export default function RealizacieLightboxSection({
             type="button"
             onClick={(e) => { e.stopPropagation(); close(); }}
             className="absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-            aria-label="Zavrieť"
+            aria-label="Zavřít"
           >
             ×
           </button>
@@ -138,7 +138,7 @@ export default function RealizacieLightboxSection({
                 type="button"
                 onClick={(e) => { e.stopPropagation(); prev(); }}
                 className="absolute left-3 top-1/2 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:left-6"
-                aria-label="Predchádzajúca"
+                aria-label="Předchozí"
               >
                 ‹
               </button>
@@ -146,7 +146,7 @@ export default function RealizacieLightboxSection({
                 type="button"
                 onClick={(e) => { e.stopPropagation(); next(); }}
                 className="absolute right-3 top-1/2 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:right-6"
-                aria-label="Nasledujúca"
+                aria-label="Další"
               >
                 ›
               </button>

@@ -15,7 +15,7 @@ function formatDate(input: string): string | null {
   }
 
   try {
-    return new Intl.DateTimeFormat("sk-SK", {
+    return new Intl.DateTimeFormat("cs-CZ", {
       day: "numeric",
       month: "long",
       year: "numeric",
@@ -83,7 +83,7 @@ function renderBlock(block: ContentBlock) {
         <AnimateOnScroll>
           <div>
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-              Prehľad
+              Přehled
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               {block.title}
@@ -180,7 +180,7 @@ function renderBlock(block: ContentBlock) {
     <AnimateOnScroll key={block.title}>
       <section className="rounded-[2rem] border border-border bg-light p-8 md:p-10">
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-          Pôvodný obsah
+          Původní obsah
         </p>
         <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
           {block.title}
@@ -237,13 +237,13 @@ export default function PageTemplate({ page }: PageTemplateProps) {
                 href="/kontakt"
                 className="rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-colors hover:bg-white/90"
               >
-                Kontaktovať nás
+                Kontaktovat nás
               </Link>
               <Link
                 href={`mailto:${CONTACT_INFO.email}`}
                 className="rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-colors hover:bg-white/10"
               >
-                Napísať e-mail
+                Napsat e-mail
               </Link>
             </div>
           </div>
@@ -260,7 +260,7 @@ export default function PageTemplate({ page }: PageTemplateProps) {
             {publishedDate ? (
               <div className="rounded-[1.4rem] border border-white/12 bg-white/8 px-5 py-4 backdrop-blur-sm">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45">
-                  Posledná zmena
+                  Poslední změna
                 </p>
                 <p className="mt-2 text-sm text-white/82">{publishedDate}</p>
               </div>
@@ -303,10 +303,10 @@ export default function PageTemplate({ page }: PageTemplateProps) {
             <AnimateOnScroll>
               <div>
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary/55">
-                  Ďalej na webe
+                  Dále na webu
                 </p>
                 <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-                  Súvisiace podstránky
+                  Související podstránky
                 </h2>
               </div>
             </AnimateOnScroll>
@@ -321,10 +321,10 @@ export default function PageTemplate({ page }: PageTemplateProps) {
                       {item.label}
                     </p>
                     <p className="mt-3 text-sm leading-7 text-foreground/65">
-                      Otvoriť podstránku s naviazaným obsahom z pôvodného webu.
+                      Otevřít podstránku s navázaným obsahem z původního webu.
                     </p>
                     <span className="mt-5 inline-flex text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                      Otvoriť
+                      Otevřít
                     </span>
                   </Link>
                 </AnimateOnScroll>

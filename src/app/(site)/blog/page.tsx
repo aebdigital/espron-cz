@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Blog | ESPRON",
   description:
-    "Tipy, postupy a naše skúsenosti zo sveta zatepľovania, rekonštrukcií a stavebných prác.",
+    "Tipy, postupy a naše zkušenosti ze světa zateplování, rekonstrukcí a stavebních prací.",
 };
 
 const FALLBACK_COVER =
@@ -26,7 +26,7 @@ export default async function BlogPage() {
         <div className="relative mx-auto w-[92%]">
           <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">Blog</p>
           <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-6xl">
-            Tipy, postupy a naše skúsenosti
+            Tipy, postupy a naše zkušenosti
           </h1>
         </div>
       </section>
@@ -35,7 +35,7 @@ export default async function BlogPage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto w-[92%]">
           {posts.length === 0 ? (
-            <p className="text-center text-foreground/60">Zatiaľ tu nie sú žiadne články.</p>
+            <p className="text-center text-foreground/60">Zatím tu nejsou žádné články.</p>
           ) : (
             <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               {posts.map((post, idx) => (
@@ -63,7 +63,7 @@ export default async function BlogPage() {
                       </p>
                     )}
                     <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                      Čítať článok
+                      Číst článek
                       <svg
                         className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
                         fill="none"

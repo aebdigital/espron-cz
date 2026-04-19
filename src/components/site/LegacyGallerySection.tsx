@@ -13,7 +13,7 @@ type LegacyGallerySectionProps = {
 };
 
 export default function LegacyGallerySection({
-  eyebrow = "Realizácie",
+  eyebrow = "Realizace",
   title,
   description,
   items,

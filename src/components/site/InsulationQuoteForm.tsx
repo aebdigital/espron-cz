@@ -15,16 +15,16 @@ type FormData = {
   telefon: string;
 };
 
-const BALIKY = ["ISTOTA", "BEZSTAROSTNOSŤ", "REŠTART"];
+const BALIKY = ["JISTOTA", "BEZSTAROSTI", "RESTART"];
 
 const STEPS = [
-  "Balík",
-  "Izolácia",
+  "Balíček",
+  "Izolace",
   "Plocha",
   "Lokalita",
   "Fotografie",
   "Kontakt",
-  "Súhrn",
+  "Souhrn",
 ];
 
 const empty: FormData = {
@@ -64,24 +64,24 @@ export default function InsulationQuoteForm() {
     setSending(true);
     setError(null);
     const lines = [
-      `Balík: ${data.balik}`,
-      `Izolácia: ${data.izolacia}${data.hrubka ? ` (${data.hrubka} mm)` : ""}`,
+      `Balíček: ${data.balik}`,
+      `Izolace: ${data.izolacia}${data.hrubka ? ` (${data.hrubka} mm)` : ""}`,
       `Plocha: ${data.plocha} m²`,
       `Lokalita: ${data.lokalita}`,
-      `Meno: ${data.meno}`,
+      `Jméno: ${data.meno}`,
       `Email: ${data.email}`,
-      `Telefón: ${data.telefon}`,
+      `Telefon: ${data.telefon}`,
     ];
     const result = await submitContact({
       name: data.meno,
       email: data.email,
       phone: data.telefon,
-      subject: "Cenová ponuka – zateplenie fasády",
+      subject: "Cenová nabídka – zateplení fasády",
       message: lines.join("\n"),
     });
     setSending(false);
     if (result.success) { setSent(true); }
-    else { setError(result.error ?? "Odoslanie zlyhalo."); }
+    else { setError(result.error ?? "Odeslání selhalo."); }
   }
 
   if (sent) {
@@ -92,9 +92,9 @@ export default function InsulationQuoteForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-xl font-bold text-foreground">Ďakujeme!</h3>
+        <h3 className="text-xl font-bold text-foreground">Děkujeme!</h3>
         <p className="max-w-sm text-sm text-foreground/60">
-          Cenovú ponuku vám pošleme do 1–2 pracovných dní.
+          Cenovou nabídku vám pošleme do 1–2 pracovních dnů.
         </p>
       </div>
     );
@@ -122,11 +122,11 @@ export default function InsulationQuoteForm() {
         Krok {step + 1} — {STEPS[step]}
       </p>
 
-      {/* ── Step 0: Balík ─────────────────────────────────────── */}
+      {/* ── Step 0: Balíček ───────────────────────────────────── */}
       {step === 0 && (
         <div>
           <h3 className="mb-6 text-xl font-bold text-foreground">
-            O ktorý z našich balíkov máte záujem?
+            O který z našich balíčků máte zájem?
           </h3>
           <div className="grid gap-3 sm:grid-cols-3">
             {BALIKY.map((b) => (
@@ -142,28 +142,28 @@ export default function InsulationQuoteForm() {
               >
                 <p className="text-sm font-bold uppercase tracking-wide">{b}</p>
                 <p className="mt-1 text-[11px] text-foreground/50">
-                  {b === "ISTOTA" && "Základ poctivej fasády"}
-                  {b === "BEZSTAROSTNOSŤ" && "Najobľúbenejší balík"}
-                  {b === "REŠTART" && "Pre najnáročnejších"}
+                  {b === "JISTOTA" && "Základ poctivé fasády"}
+                  {b === "BEZSTAROSTI" && "Nejoblíbenější balíček"}
+                  {b === "RESTART" && "Pro nejnáročnější"}
                 </p>
               </button>
             ))}
           </div>
           <p className="mt-4 text-xs text-foreground/40">
-            (Ak niektorý údaj neviete, nevadí – doladíme neskôr.)
+            (Pokud některý údaj nevíte, nevadí – doladíme později.)
           </p>
         </div>
       )}
 
-      {/* ── Step 1: Izolácia ──────────────────────────────────── */}
+      {/* ── Step 1: Izolace ──────────────────────────────────── */}
       {step === 1 && (
         <div>
           <h3 className="mb-6 text-xl font-bold text-foreground">
-            Typ a hrúbka izolácie
+            Typ a tloušťka izolace
           </h3>
-          <p className="mb-4 text-sm text-foreground/60">Aký izolačný materiál plánujete použiť?</p>
+          <p className="mb-4 text-sm text-foreground/60">Jaký izolační materiál plánujete použít?</p>
           <div className="mb-6 grid gap-3 sm:grid-cols-2">
-            {["EPS (polystyrén)", "Minerálna vata"].map((t) => (
+            {["EPS (polystyren)", "Minerální vata"].map((t) => (
               <button
                 key={t}
                 type="button"
@@ -179,11 +179,11 @@ export default function InsulationQuoteForm() {
             ))}
           </div>
           <label className="block text-sm font-medium text-foreground/70">
-            Hrúbka izolácie (mm) — nepovinné
+            Tloušťka izolace (mm) — nepovinné
           </label>
           <input
             type="number"
-            placeholder="napr. 160"
+            placeholder="např. 160"
             value={data.hrubka}
             onChange={(e) => set("hrubka", e.target.value)}
             className="mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm outline-none focus:border-primary"
@@ -197,11 +197,11 @@ export default function InsulationQuoteForm() {
           <h3 className="mb-6 text-xl font-bold text-foreground">
             Plocha fasády
           </h3>
-          <p className="mb-4 text-sm text-foreground/60">Koľko m² fasády chcete zatepliť?</p>
+          <p className="mb-4 text-sm text-foreground/60">Kolik m² fasády chcete zateplit?</p>
           <div className="flex items-center gap-3">
             <input
               type="number"
-              placeholder="napr. 200"
+              placeholder="např. 200"
               value={data.plocha}
               onChange={(e) => set("plocha", e.target.value)}
               className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none focus:border-primary"
@@ -209,7 +209,7 @@ export default function InsulationQuoteForm() {
             <span className="shrink-0 text-sm font-medium text-foreground/50">m²</span>
           </div>
           <p className="mt-3 text-xs text-foreground/40">
-            Orientačná hodnota stačí — presné nacenenie doladíme pri obhliadke.
+            Orientační hodnota stačí — přesné nacenění doladíme při prohlídce.
           </p>
         </div>
       )}
@@ -221,11 +221,11 @@ export default function InsulationQuoteForm() {
             Lokalita
           </h3>
           <p className="mb-4 text-sm text-foreground/60">
-            V ktorom meste sa budú vykonávať stavebné práce?
+            Ve kterém městě se budou stavební práce provádět?
           </p>
           <input
             type="text"
-            placeholder="napr. Bratislava, Nitra, Košice…"
+            placeholder="např. Praha, Brno, Ostrava…"
             value={data.lokalita}
             onChange={(e) => set("lokalita", e.target.value)}
             className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none focus:border-primary"
@@ -240,7 +240,7 @@ export default function InsulationQuoteForm() {
             Fotografie fasády
           </h3>
           <p className="mb-4 text-sm text-foreground/60">
-            Priložte niekoľko fotografií fasády, aby sme mohli prispôsobiť cenovú ponuku aktuálnemu stavu.
+            Přiložte několik fotografií fasády, abychom mohli přizpůsobit cenovou nabídku aktuálnímu stavu.
           </p>
           <label className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-border px-6 py-10 transition-colors hover:border-primary/40">
             <svg className="h-8 w-8 text-foreground/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -248,8 +248,8 @@ export default function InsulationQuoteForm() {
             </svg>
             <span className="text-sm text-foreground/50">
               {data.fotografie.length > 0
-                ? `${data.fotografie.length} súbor(ov) vybratých`
-                : "Kliknite pre výber fotografií"}
+                ? `${data.fotografie.length} soubor(ů) vybráno`
+                : "Klikněte pro výběr fotografií"}
             </span>
             <input
               type="file"
@@ -260,7 +260,7 @@ export default function InsulationQuoteForm() {
             />
           </label>
           <p className="mt-3 text-xs text-foreground/40">
-            Fotografie môžete priložiť aj neskôr priamo e-mailom — tento krok môžete preskočiť.
+            Fotografie můžete přiložit i později přímo e-mailem — tento krok můžete přeskočit.
           </p>
         </div>
       )}
@@ -269,14 +269,14 @@ export default function InsulationQuoteForm() {
       {step === 5 && (
         <div>
           <h3 className="mb-6 text-xl font-bold text-foreground">
-            Vaše kontaktné údaje
+            Vaše kontaktní údaje
           </h3>
           <div className="space-y-4">
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground/70">Meno a priezvisko</label>
+              <label className="mb-1.5 block text-sm font-medium text-foreground/70">Jméno a příjmení</label>
               <input
                 type="text"
-                placeholder="Ján Novák"
+                placeholder="Jan Novák"
                 value={data.meno}
                 onChange={(e) => set("meno", e.target.value)}
                 className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none focus:border-primary"
@@ -293,10 +293,10 @@ export default function InsulationQuoteForm() {
               />
             </div>
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground/70">Telefón</label>
+              <label className="mb-1.5 block text-sm font-medium text-foreground/70">Telefon</label>
               <input
                 type="tel"
-                placeholder="+421 9xx xxx xxx"
+                placeholder="+420 7xx xxx xxx"
                 value={data.telefon}
                 onChange={(e) => set("telefon", e.target.value)}
                 className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none focus:border-primary"
@@ -306,22 +306,22 @@ export default function InsulationQuoteForm() {
         </div>
       )}
 
-      {/* ── Step 6: Súhrn ────────────────────────────────────── */}
+      {/* ── Step 6: Souhrn ───────────────────────────────────── */}
       {step === 6 && (
         <div>
           <h3 className="mb-6 text-xl font-bold text-foreground">
-            Súhrn vašej požiadavky
+            Souhrn vaší poptávky
           </h3>
           <div className="divide-y divide-border rounded-2xl border border-border">
             {[
-              { label: "Balík", value: data.balik || "—" },
-              { label: "Izolácia", value: [data.izolacia, data.hrubka ? `${data.hrubka} mm` : ""].filter(Boolean).join(", ") || "—" },
+              { label: "Balíček", value: data.balik || "—" },
+              { label: "Izolace", value: [data.izolacia, data.hrubka ? `${data.hrubka} mm` : ""].filter(Boolean).join(", ") || "—" },
               { label: "Plocha", value: data.plocha ? `${data.plocha} m²` : "—" },
               { label: "Lokalita", value: data.lokalita || "—" },
-              { label: "Fotografie", value: data.fotografie.length > 0 ? `${data.fotografie.length} súbor(ov)` : "Bez fotografií" },
-              { label: "Meno", value: data.meno || "—" },
+              { label: "Fotografie", value: data.fotografie.length > 0 ? `${data.fotografie.length} soubor(ů)` : "Bez fotografií" },
+              { label: "Jméno", value: data.meno || "—" },
               { label: "E-mail", value: data.email || "—" },
-              { label: "Telefón", value: data.telefon || "—" },
+              { label: "Telefon", value: data.telefon || "—" },
             ].map((row) => (
               <div key={row.label} className="flex items-start justify-between gap-4 px-5 py-3.5">
                 <span className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/45">{row.label}</span>
@@ -330,7 +330,7 @@ export default function InsulationQuoteForm() {
             ))}
           </div>
           <p className="mt-5 text-xs text-foreground/45">
-            Skontrolujte údaje a kliknite na „Odoslať". Cenovú ponuku vám pošleme do 1–2 pracovných dní.
+            Zkontrolujte údaje a klikněte na „Odeslat". Cenovou nabídku vám pošleme do 1–2 pracovních dnů.
           </p>
         </div>
       )}
@@ -347,7 +347,7 @@ export default function InsulationQuoteForm() {
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Späť
+            Zpět
           </button>
         ) : (
           <div />
@@ -359,7 +359,7 @@ export default function InsulationQuoteForm() {
             onClick={next}
             className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90"
           >
-            Ďalej
+            Další
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -371,7 +371,7 @@ export default function InsulationQuoteForm() {
             disabled={sending}
             className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:opacity-60"
           >
-            {sending ? "Odosiela sa…" : "Odoslať"}
+            {sending ? "Odesílá se…" : "Odeslat"}
             {!sending && (
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

@@ -64,7 +64,7 @@ export default async function BlogPostPage({
           </h1>
           {post.reading_time && (
             <p className="animate-fade-up-delay-3 mt-5 text-xs text-white/50">
-              {post.reading_time} čítania
+              {post.reading_time} čtení
             </p>
           )}
         </div>
@@ -111,7 +111,7 @@ export default async function BlogPostPage({
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Späť na blog
+            Zpět na blog
           </Link>
         </AnimateOnScroll>
       </article>
