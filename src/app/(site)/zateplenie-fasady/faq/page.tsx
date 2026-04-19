@@ -4,297 +4,293 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FaqRichAccordion from "@/components/site/FaqRichAccordion";
 
 export const metadata: Metadata = {
-  title: "FAQ – Zateplenie fasády | ESPRON",
+  title: "FAQ – Zateplení fasády | ESPRON",
   description:
-    "Najčastejšie otázky o zateplení fasády. Koľko to stojí, ako dlho trvá, aké materiály používame a čo všetko je zahrnuté v cene.",
+    "Nejčastější otázky o zateplení fasády. Kolik to stojí, jak dlouho práce trvají, jaké materiály používáme a co vše je zahrnuto v ceně.",
 };
 
 const FAQ_ITEMS = [
   {
-    question: "Realizujete zateplenie fasád po celom Slovensku?",
+    question: "Realizujete zateplení fasád po celém Česku i na Slovensku?",
     answer: (
       <p>
-        Áno, realizujeme zatepľovanie domov a budov{" "}
-        <strong>na celom území Slovenska</strong>. Najčastejšie pracujeme
-        v oblastiach ako Bratislava, Trnava, Hlohovec, Nitra, Trenčín, Žilina
-        či Košice, no <strong>prideme kamkoľvek</strong>.
+        Ano, realizujeme zateplování domů a budov{" "}
+        <strong>po celém Česku i na Slovensku</strong>. Pracujeme v různých
+        regionech a po domluvě <strong>přijedeme i k vám</strong>.
         <br />
         <br />
         <Link href="/zateplenie-fasady" className="text-primary underline underline-offset-2 hover:opacity-70">
-          → Pozrite si viac o našich zateplovacích prácach
+          → Podívejte se na více informací o našich zateplovacích pracích
         </Link>
       </p>
     ),
   },
   {
-    question: "Môžem si zateplenie realizovať svojpomocne, alebo je lepšie najať firmu?",
+    question: "Mohu si zateplení realizovat svépomocí, nebo je lepší najmout firmu?",
     answer: (
       <>
         <p>
-          Zateplenie svojpomocne je síce možné, no ide o{" "}
-          <strong>technologicky náročný proces</strong>. Pri nesprávnom postupe
-          často vznikajú <strong>chyby ako tepelné mosty, tvorba plesní</strong>{" "}
-          a dochádza aj <strong>k prenikaniu vlhkosti</strong> – čo môže mať za
-          následok výrazne kratšiu životnosť fasády. Medzi časté nedostatky
-          patrí aj chýbajúce kotvenie, nedostatočná penetrácia alebo zle
-          napojené detaily okolo okien.
+          Zateplení svépomocí je sice možné, ale jde o{" "}
+          <strong>technologicky náročný proces</strong>. Při nesprávném postupu
+          často vznikají <strong>chyby jako tepelné mosty, tvorba plísní</strong>{" "}
+          a dochází také <strong>k pronikání vlhkosti</strong>, což může výrazně
+          zkrátit životnost fasády. Mezi časté nedostatky patří chybějící
+          kotvení, nedostatečná penetrace nebo špatně napojené detaily kolem
+          oken.
         </p>
-        <p className="mt-4">Realizáciou cez firmu ESPRON získate:</p>
+        <p className="mt-4">Realizací přes firmu ESPRON získáte:</p>
         <ul className="mt-2 list-disc pl-5 space-y-1">
-          <li>správne technologické postupy podľa platných noriem,</li>
-          <li>dôraz na detaily, ktoré rozhodujú o výsledku,</li>
+          <li>správné technologické postupy podle platných norem,</li>
+          <li>důraz na detaily, které rozhodují o výsledku,</li>
           <li>úsporu času a stresu.</li>
         </ul>
         <p className="mt-4">
-          Ak by ste si však chceli pozrieť, ako vyzerá tento náročný proces,
-          pripravili sme pre vás podrobný návod na stránke:
+          Pokud se ale chcete podívat, jak tento náročný proces vypadá,
+          připravili jsme pro vás podrobný návod na stránce:
           <br />
           <Link href="/blog/zateplenie-fasady-svojpomocne" className="text-primary underline underline-offset-2 hover:opacity-70">
-            → svojpomocné zateplenie fasády
+            → zateplení fasády svépomocí
           </Link>
         </p>
       </>
     ),
   },
   {
-    question: "Za ako dlho zateplíte rodinný dom?",
+    question: "Za jak dlouho zateplíte rodinný dům?",
     answer: (
       <>
         <p>
-          Rýchlosť zateplenia závisí od veľkosti domu, jeho členitosti a
-          prístupnosti. Naše skúsenosti ukazujú, že pri štandardnom rodinnom
-          dome (napr. cca 150 m² fasády) zvládneme celú realizáciu za{" "}
-          <strong>8 až 9 dní</strong> – vrátane finálnej omietky.
+          Rychlost zateplení závisí na velikosti domu, jeho členitosti a
+          přístupnosti. Naše zkušenosti ukazují, že u standardního rodinného
+          domu (např. cca 150 m² fasády) zvládneme celou realizaci za{" "}
+          <strong>8 až 9 dní</strong>, včetně finální omítky.
         </p>
         <p className="mt-4">
-          Pri ideálnych podmienkach (napr. bungalov s dobrým prístupom, bez
-          nutnosti zložitých prestavieb lešenia) vieme spraviť až{" "}
-          <strong>20 m² denne na komplet</strong>, čo zahŕňa lepenie izolácie,
-          armovanie aj aplikáciu omietky.
+          Při ideálních podmínkách (např. bungalov s dobrým přístupem, bez
+          nutnosti složitých přestaveb lešení) dokážeme udělat až{" "}
+          <strong>20 m² denně kompletně</strong>, což zahrnuje lepení izolace,
+          armování i aplikaci omítky.
         </p>
         <p className="mt-4">
-          Nezdržujeme sa, náš tím je zohriatý a má jasne rozdelené úlohy.
-          Pracujeme rýchlo, precízne a bez zbytočných prestojov. Práve preto si
-          nás zákazníci cenia ako{" "}
-          <strong>profesionálnu a spoľahlivú firmu</strong>.
+          Nezdržujeme se, náš tým je sehraný a má jasně rozdělené úkoly.
+          Pracujeme rychle, precizně a bez zbytečných prostojů. Právě proto si
+          nás zákazníci cení jako{" "}
+          <strong>profesionální a spolehlivou firmu</strong>.
         </p>
       </>
     ),
   },
   {
-    question: "Zatepľujete aj staršie domy? Aké sú obmedzenia?",
+    question: "Zateplujete i starší domy? Jaká jsou omezení?",
     answer: (
       <p>
-        Áno, zatepľujeme aj staršie stavby. Dôležité je však posúdiť technický
-        stav pôvodnej fasády – odlupujúca sa omietka, praskliny či zvýšená
-        vlhkosť si môžu vyžadovať opravu pred samotným zateplením. V rámci
-        realizácie zabezpečujeme aj prípravu podkladu, aby nové vrstvy
-        fungovali spoľahlivo a mali dlhú životnosť.
+        Ano, zateplujeme i starší stavby. Důležité je ale posoudit technický
+        stav původní fasády. Odlupující se omítka, praskliny nebo zvýšená
+        vlhkost mohou vyžadovat opravu ještě před samotným zateplením. V rámci
+        realizace zajišťujeme také přípravu podkladu, aby nové vrstvy fungovaly
+        spolehlivě a měly dlouhou životnost.
       </p>
     ),
   },
   {
-    question: "Prečo je zateplenie staršieho domu často drahšie ako pri novostavbe?",
+    question: "Proč je zateplení staršího domu často dražší než u novostavby?",
     answer: (
       <>
         <p>
-          Pri starších domoch sa často objavujú{" "}
-          <strong>nepredvídateľné problémy</strong>, ktoré zvyšujú náročnosť a
-          náklady realizácie – napríklad uvoľnená alebo nesúdržná omietka,
-          skryté praskliny, nerovnosti muriva alebo vysoká vlhkosť. Niekedy je
-          potrebné pôvodnú omietku kompletne odstrániť a podklad technicky
-          upraviť.
+          U starších domů se často objevují{" "}
+          <strong>nepředvídatelné problémy</strong>, které zvyšují náročnost a
+          náklady realizace, například uvolněná nebo nesoudržná omítka, skryté
+          praskliny, nerovnosti zdiva nebo vysoká vlhkost. Někdy je potřeba
+          původní omítku kompletně odstranit a podklad technicky upravit.
         </p>
         <p className="mt-4">
-          Tieto práce si často{" "}
-          <strong>vyžadujú viac času a zásahov</strong>, ako by sa na prvý
-          pohľad zdalo. Aj keď niektoré riziká vieme odhadnúť pri obhliadke,
-          mnoho skutočností sa ukáže až{" "}
-          <strong>počas samotnej realizácie</strong> – napríklad po odstránení
-          pôvodnej omietky. Vtedy sa môžu objaviť nepevné vrstvy, poškodené
-          murivo alebo iné technické komplikácie, ktoré predražia aj predĺžia
-          celý proces.
+          Tyto práce si často{" "}
+          <strong>vyžádají více času a zásahů</strong>, než by se na první
+          pohled zdálo. I když některá rizika dokážeme odhadnout při obhlídce,
+          mnoho skutečností se ukáže až{" "}
+          <strong>během samotné realizace</strong>, například po odstranění
+          původní omítky. Tehdy se mohou objevit nepevné vrstvy, poškozené
+          zdivo nebo jiné technické komplikace, které celý proces prodraží i
+          prodlouží.
         </p>
         <p className="mt-4">
           <Link href="/zateplenie-fasady" className="text-primary underline underline-offset-2 hover:opacity-70">
-            → Prečítajte si, čo všetko sme museli vyriešiť pri zateplení staršieho domu v Hlohovci
+            → Přečtěte si, co vše jsme museli vyřešit při zateplení staršího domu v Hlohovci
           </Link>
         </p>
       </>
     ),
   },
   {
-    question: "Aké materiály používate pri zateplení fasády?",
+    question: "Jaké materiály používáte při zateplení fasády?",
     answer: (
       <>
         <p>
-          Používame certifikované a osvedčené materiály v súlade s technickými
-          normami STN a odporúčaniami výrobcov. Medzi najčastejšie používané
-          patria:
+          Používáme certifikované a ověřené materiály v souladu s technickými
+          normami a doporučeními výrobců. Mezi nejčastěji používané patří:
         </p>
         <ul className="mt-2 list-disc pl-5 space-y-1">
           <li>
-            <strong>EPS polystyrén (biely alebo sivý grafitový)</strong> –
-            vhodný na väčšinu bežných objektov, výhodný pomer cena/výkon,
+            <strong>EPS polystyren (bílý nebo šedý grafitový)</strong> –
+            vhodný pro většinu běžných objektů, výhodný poměr cena/výkon,
           </li>
           <li>
-            <strong>minerálna vlna</strong> – ideálna pre difúzne otvorené
-            konštrukcie alebo pasívne domy,
+            <strong>minerální vata</strong> – ideální pro difuzně otevřené
+            konstrukce nebo pasivní domy,
           </li>
           <li>
-            systémové lepidlá, penetračné nátery, výstužné sieťky, rohové
-            profily a finálne tenkovrstvové omietky.
+            systémová lepidla, penetrační nátěry, výztužné síťky, rohové
+            profily a finální tenkovrstvé omítky.
           </li>
         </ul>
         <p className="mt-4">
-          Výber materiálu vždy prispôsobujeme typu stavby, jej stavu,
-          požiadavkám zákazníka a požadovanej energetickej triede. Naši klienti
-          často oceňujú aj vizuálne možnosti – omietky ponúkame v rôznych
-          štruktúrach a farbách.
+          Výběr materiálu vždy přizpůsobujeme typu stavby, jejímu stavu,
+          požadavkům zákazníka a požadované energetické třídě. Naši klienti
+          často oceňují i vizuální možnosti, omítky nabízíme v různých
+          strukturách a barvách.
         </p>
       </>
     ),
   },
   {
-    question: "Ako prebieha zatepľovanie krok za krokom?",
+    question: "Jak probíhá zateplování krok za krokem?",
     answer: (
       <>
-        <p>Štandardný postup zateplenia:</p>
+        <p>Standardní postup zateplení:</p>
         <ol className="mt-2 list-decimal pl-5 space-y-1">
-          <li>Príprava podkladu – čistenie, opravy, penetračný náter,</li>
-          <li>Lepenie izolačných dosiek,</li>
-          <li>Kotvenie,</li>
-          <li>Armovanie výstužnou sieťkou a lepidlom,</li>
-          <li>Prebrúsenie a opravy základnej vrstvy,</li>
-          <li>Penetračný náter,</li>
+          <li>Příprava podkladu – čištění, opravy, penetrační nátěr,</li>
+          <li>Lepení izolačních desek,</li>
+          <li>Kotvení,</li>
+          <li>Armování výztužnou síťkou a lepidlem,</li>
+          <li>Přebroušení a opravy základní vrstvy,</li>
+          <li>Penetrační nátěr,</li>
           <li>
-            Aplikácia finálnej tenkovrstvovej omietky (v rôznych štruktúrach a
-            odtieňoch).
+            Aplikace finální tenkovrstvé omítky (v různých strukturách a
+            odstínech).
           </li>
         </ol>
         <p className="mt-4">
-          Každý krok realizujeme <strong>podľa technologických noriem</strong>.
+          Každý krok realizujeme <strong>podle technologických norem</strong>.
         </p>
       </>
     ),
   },
   {
-    question: "Je nutná príprava fasády pred zateplením?",
+    question: "Je nutná příprava fasády před zateplením?",
     answer: (
       <p>
-        Áno. Základom kvalitného zateplenia je pevný, čistý a suchý podklad. V
-        rámci prípravy fasádu zbavíme nečistôt, poškodených častí a trhlín.
-        Potom nanášame penetračný náter, ktorý zjednocuje savosť a zvyšuje
-        priľnavosť lepidla. Prípravu podkladu vykonávame ako súčasť našej
+        Ano. Základem kvalitního zateplení je pevný, čistý a suchý podklad. V
+        rámci přípravy fasádu zbavíme nečistot, poškozených částí a trhlin.
+        Poté nanášíme penetrační nátěr, který sjednocuje savost a zvyšuje
+        přilnavost lepidla. Přípravu podkladu provádíme jako součást naší
         služby.
       </p>
     ),
   },
   {
-    question: "Ako sa meria plocha fasády pre určenie ceny?",
+    question: "Jak se měří plocha fasády pro určení ceny?",
     answer: (
       <>
         <p>
-          Plochu fasády meriame najčastejšie ako celkovú výmeru{" "}
-          <strong>bez odpočítania otvorov</strong> (okná a dvere). Je to bežná
-          prax, keďže aj okolo otvorov je množstvo detailnej práce.
+          Plochu fasády měříme nejčastěji jako celkovou výměru{" "}
+          <strong>bez odečtení otvorů</strong> (okna a dveře). Je to běžná
+          praxe, protože i kolem otvorů je mnoho detailní práce.
         </p>
         <p className="mt-4">
-          V prípade potreby vieme urobiť výpočet aj s odpočítaním otvorov –
-          vtedy sa špalety (ostenia) účtujú osobitne podľa bežného metra. O
-          spôsobe výpočtu sa vždy vopred dohodneme so zákazníkom.
+          V případě potřeby umíme udělat výpočet i s odečtením otvorů. Tehdy se
+          špalety (ostění) účtují samostatně podle běžného metru. Způsob
+          výpočtu si vždy předem odsouhlasíme se zákazníkem.
         </p>
       </>
     ),
   },
   {
-    question: "Čo všetko je zahrnuté v cene prác?",
+    question: "Co vše je zahrnuto v ceně prací?",
     answer: (
       <>
-        <p>V cene prác je štandardne zahrnuté:</p>
+        <p>V ceně prací je standardně zahrnuto:</p>
         <ul className="mt-2 list-disc pl-5 space-y-1">
-          <li>penetrovanie podkladu (2x),</li>
-          <li>lepenie izolácie,</li>
-          <li>vystuženie sieťkou a nanesenie armovacej vrstvy,</li>
-          <li>prebrúsenie,</li>
-          <li>aplikácia finálnej omietky.</li>
+          <li>penetrování podkladu (2x),</li>
+          <li>lepení izolace,</li>
+          <li>vyztužení síťkou a nanesení armovací vrstvy,</li>
+          <li>přebroušení,</li>
+          <li>aplikace finální omítky.</li>
         </ul>
         <p className="mt-4">
-          Cena materiálu zahŕňa: EPS/minerálnu vlnu, lepidlo, sieťku,
-          hmoždinky (kotvy), penetráciu, omietku.{" "}
-          <strong>Lešenie sa účtuje samostatne</strong>, orientačne cca 500 € /
+          Cena materiálu zahrnuje: EPS/minerální vatu, lepidlo, síťku,
+          hmoždinky (kotvy), penetraci, omítku.{" "}
+          <strong>Lešení se účtuje samostatně</strong>, orientačně cca 500 € /
           100 m².
         </p>
       </>
     ),
   },
   {
-    question: "Môžem nalepiť nový polystyrén na starý?",
+    question: "Mohu nalepit nový polystyren na starý?",
     answer: (
       <p>
-        Je to možné, no je nevyhnutné, aby stav pôvodného zateplenia posúdil
-        odborník s autorizáciou (<strong>projektant alebo statik</strong>). Ako
-        realizačná firma neposudzujeme vhodnosť podkladu, ale po dodaní posudku
-        zabezpečíme bezchybnú realizáciu zateplenia podľa odporúčaní.
+        Je to možné, ale je nezbytné, aby stav původního zateplení posoudil
+        odborník s autorizací (<strong>projektant nebo statik</strong>). Jako
+        realizační firma neposuzujeme vhodnost podkladu, ale po dodání posudku
+        zajistíme bezchybnou realizaci zateplení podle doporučení.
       </p>
     ),
   },
   {
-    question: "Bojím sa, že ma cena za zateplenie zruinuje. Koľko to bude stáť?",
+    question: "Bojím se, že mě cena za zateplení zruinuje. Kolik to bude stát?",
     answer: (
       <>
         <p>
-          Rozumieme, že cena je pre mnohých rozhodujúca. Preto máme na stránke
-          uverejnené <strong>orientačné rozmedzie cien</strong>, aby ste si
-          vedeli predstavu o rozpočte ešte predtým, ako nás kontaktujete.
-          Zateplenie domu nie je lacná investícia, ale správne prevedené vám{" "}
-          <strong>zníži náklady na kúrenie a zvýši hodnotu nehnuteľnosti</strong>.
+          Rozumíme, že cena je pro mnoho lidí rozhodující. Proto máme na stránce
+          zveřejněné <strong>orientační rozpětí cen</strong>, abyste si udělali
+          představu o rozpočtu ještě předtím, než nás kontaktujete. Zateplení
+          domu není levná investice, ale správně provedené vám{" "}
+          <strong>sníží náklady na vytápění a zvýší hodnotu nemovitosti</strong>.
         </p>
         <p className="mt-4">
-          Keď ide o väčší zásah do vášho domova –{" "}
-          <strong>často raz za život</strong> – je dôležité zveriť ho{" "}
-          <strong>do rúk spoľahlivým a skúseným odborníkom</strong>. Výber
-          správnej firmy rozhoduje o tom, či sa vám investícia skutočne vráti.
+          Když jde o větší zásah do vašeho domova,{" "}
+          <strong>často jednou za život</strong>, je důležité svěřit ho{" "}
+          <strong>do rukou spolehlivých a zkušených odborníků</strong>. Výběr
+          správné firmy rozhoduje o tom, zda se vám investice skutečně vrátí.
         </p>
         <p className="mt-4">
-          Ak máte záujem o nacenenie, prejdite na sekciu{" "}
+          Pokud máte zájem o nacenění, přejděte do sekce{" "}
           <Link href="/kontakt" className="text-primary underline underline-offset-2 hover:opacity-70">
-            → Ako nás kontaktovať
+            → Jak nás kontaktovat
           </Link>
-          , kde nájdete všetky informácie, ktoré od vás potrebujeme k naceneniu
-          – ako lokalitu, rozmery fasády a ideálne aj pár fotografií.
+          , kde najdete všechny informace, které od vás k nacenění potřebujeme:
+          lokalitu, rozměry fasády a ideálně i pár fotografií.
         </p>
       </>
     ),
   },
   {
-    question: "Robíte aj podhlady (tzv. štablóny)?",
+    question: "Děláte i podhledy (tzv. štablóny)?",
     answer: (
       <>
         <p>
-          Štandardne by mali nosnú konštrukciu podhladu realizovať strechari
-          alebo tesári, keďže ide o súčasť strešnej konštrukcie.
+          Standardně by měli nosnou konstrukci podhledu realizovat střechaři
+          nebo tesaři, protože jde o součást střešní konstrukce.
         </p>
         <p className="mt-4">
-          V prípade potreby vieme zabezpečiť aj kompletné vyhotovenie vrátane
-          konštrukcie – ide však o{" "}
+          V případě potřeby dokážeme zajistit i kompletní provedení včetně
+          konstrukce. Jde však o{" "}
           <strong>
-            nadštandardnú službu mimo základnej ceny za zateplenie fasády
+            nadstandardní službu mimo základní cenu za zateplení fasády
           </strong>
           .
         </p>
-        <p className="mt-4">Cena sa určuje podľa rozsahu:</p>
+        <p className="mt-4">Cena se určuje podle rozsahu:</p>
         <ul className="mt-2 list-disc pl-5 space-y-1">
           <li>
-            pri užších podhladoch účtujeme za <strong>bežný meter</strong>,
+            u užších podhledů účtujeme podle <strong>běžného metru</strong>,
           </li>
           <li>
-            pri širších riešeniach podľa <strong>m² plochy</strong>.
+            u širších řešení podle <strong>m² plochy</strong>.
           </li>
         </ul>
         <p className="mt-4">
-          Celý podhľad esteticky doladíme k fasáde, vrátane detailov a
-          ukončení.
+          Celý podhled esteticky sladíme s fasádou, včetně detailů a zakončení.
         </p>
       </>
     ),
@@ -307,15 +303,15 @@ export default function ZateplenieFaqPage() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-primary-dark pb-18 pt-28 text-white md:pb-24 md:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_34%),linear-gradient(120deg,rgba(255,255,255,0.06),transparent_26%)]" />
- <div className="relative mx-auto w-[92%]">
+        <div className="relative mx-auto w-[92%]">
           <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.3em] text-white/55">
-            Zateplenie fasády
+            Zateplení fasády
           </p>
           <h1 className="animate-fade-up-delay-1 mt-5 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
             Často kladené otázky
           </h1>
           <p className="animate-fade-up-delay-2 mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
-            Odpovede na to, čo nás zákazníci pýtajú najčastejšie.
+            Odpovědi na to, na co se nás zákazníci ptají nejčastěji.
           </p>
         </div>
       </section>
@@ -325,17 +321,17 @@ export default function ZateplenieFaqPage() {
         <div className="mx-auto w-[92%] max-w-4xl">
           <AnimateOnScroll className="mb-12">
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl">
-              Najčastejšie otázky o zateplení fasády,{" "}
+              Nejčastější otázky o zateplení fasády,{" "}
               <span className="font-light text-foreground/60">
-                ktoré by ste mali poznať
+                které byste měli znát
               </span>
             </h2>
             <p className="mt-4 text-sm leading-7 text-foreground/60">
-              Koľko to bude stáť? Ako dlho to trvá? A čo ak to chcem urobiť
-              svojpomocne? Práve na tieto otázky sa nás zákazníci pýtajú
-              najčastejšie. Odpovede sme zhrnuli na jednom mieste – aby ste sa
-              mohli rýchlejšie rozhodnúť, vyhnúť sa chybám a zveriť fasádu do
-              správnych rúk.
+              Kolik to bude stát? Jak dlouho to trvá? A co když to chci udělat
+              svépomocí? Právě na tyto otázky se nás zákazníci ptají
+              nejčastěji. Odpovědi jsme shrnuli na jednom místě, abyste se
+              mohli rychleji rozhodnout, vyhnout se chybám a svěřit fasádu do
+              správných rukou.
             </p>
           </AnimateOnScroll>
 
@@ -346,16 +342,16 @@ export default function ZateplenieFaqPage() {
           <AnimateOnScroll delay={140}>
             <div className="mt-14 rounded-2xl border border-primary/20 bg-primary/5 px-8 py-7">
               <p className="text-sm font-semibold text-foreground">
-                Nenašli ste odpoveď na svoju otázku?
+                Nenašli jste odpověď na svou otázku?
               </p>
               <p className="mt-1 text-sm text-foreground/60">
-                Napíšte nám alebo zavolajte – radi zodpovieme akýkoľvek dotaz.
+                Napište nám nebo zavolejte – rádi zodpovíme jakýkoli dotaz.
               </p>
               <Link
                 href="/kontakt"
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-2"
               >
-                Kontaktovať nás
+                Kontaktovat nás
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

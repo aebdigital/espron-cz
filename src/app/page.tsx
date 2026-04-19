@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FEATURED_FACADE_IMAGE,
-  getServicePreviewImage,
+  INTERIOR_DESIGN_IMAGE,
 } from "@/lib/service-page-media";
 import { listBlogPosts } from "@/lib/cms-blog-posts";
 
@@ -19,7 +19,7 @@ export const dynamic = "force-dynamic";
 const services = [
   { title: "Zateplení fasády", image: FEATURED_FACADE_IMAGE, href: "/zateplenie-fasady" },
   { title: "Základové desky", image: "https://static.wixstatic.com/media/11062b_52669a954ee44f869d54e8018d13f653~mv2.jpg", href: "/zakladove-dosky" },
-  { title: "Interiérový design", image: "/images/interier.jpg", href: "/interierovy-dizajn" },
+  { title: "Interiérový design", image: INTERIOR_DESIGN_IMAGE, href: "/interierovy-dizajn" },
   { title: "Čištění fasády", image: "/images/old-site/cistenie-fasady/tatranska-lomnica-03.webp", href: "/cistenie-fasady" },
 ];
 
