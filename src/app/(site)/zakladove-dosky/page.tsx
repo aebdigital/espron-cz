@@ -6,6 +6,7 @@ import FloatingQuoteButton from "@/components/site/FloatingQuoteButton";
 import ServiceRealizationGallery from "@/components/site/ServiceRealizationGallery";
 import QuoteScrollButton from "@/components/site/QuoteScrollButton";
 import ServiceIntroSection from "@/components/site/ServiceIntroSection";
+import BuilderContactForm, { type BuilderContactField } from "@/components/site/BuilderContactForm";
 import { CONTACT_INFO, PAGE_OVERRIDES } from "@/lib/site-navigation";
 import type { LegacyGalleryItem } from "@/lib/legacy-gallery-data";
 
@@ -16,10 +17,43 @@ export const metadata: Metadata = {
 };
 
 const PROBLEMS = [
-  { label: "Praskliny ve stěnách" },
-  { label: "Problémy s vlhkostí" },
-  { label: "Problémy s odvodněním" },
-  { label: "Snížená životnost stavby" },
+  {
+    label: "Statické poruchy",
+    desc: "Nekvalitní podloží nebo betonáž způsobují praskání nosných zdí a poklesy stavby.",
+    icon: (
+      <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10" />
+      </svg>
+    ),
+  },
+  {
+    label: "Vlhkost a plísně",
+    desc: "Špatná hydroizolace vede k vzlínání zemní vlhkosti a vzniku zdraví škodlivých plísní.",
+    icon: (
+      <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 01-2 2H6a2 2 0 01-2-2m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5" />
+      </svg>
+    ),
+  },
+  {
+    label: "Geometrické nepřesnosti",
+    desc: "Nerovná deska prodražuje pokládku podlah a komplikuje montáž hrubé stavby.",
+    icon: (
+      <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Snížená životnost",
+    desc: "Nekvalitní materiály vedou k degradaci betonu a korozi armatury v základech.",
+    icon: (
+      <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
 ];
 
 const WHY = [
@@ -38,16 +72,47 @@ const WHY = [
 ];
 
 const INCLUDED = [
-  { label: "Vytyčení polohy", icon: "📐" },
-  { label: "Shrnutí ornice", icon: "🚜" },
-  { label: "Výkopové práce", icon: "⛏️" },
-  { label: "Shrnutí štěrku pod deskou", icon: "🪨" },
-  { label: "Osazení hromosvodu", icon: "⚡" },
-  { label: "Zalití základových pásů", icon: "🪣" },
-  { label: "Zaměření geodetem", icon: "📡" },
-  { label: "DT tvárnice — 2 řady", icon: "🧱" },
-  { label: "Kari sítě a vyztužení roxory", icon: "🔩" },
-  { label: "Vylití desky", icon: "💧" },
+  {
+    label: "Vytyčení polohy",
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Výkopové práce",
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0l2-2m4 4l2-2" />
+      </svg>
+    ),
+  },
+  {
+    label: "Průchodky (IS)",
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    ),
+  },
+  {
+    label: "Armování a betonáž",
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 10h16M4 14h16M10 4v16M14 4v16" />
+      </svg>
+    ),
+  },
+  {
+    label: "Vibro-shutnění",
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+  },
 ];
 
 const LEGACY_REALIZATIONS: LegacyGalleryItem[] = [
@@ -91,6 +156,17 @@ const LEGACY_REALIZATIONS: LegacyGalleryItem[] = [
     alt: "Vyztužení kari sítěmi a betonáž desky",
     image: "https://static.wixstatic.com/media/11062b_ba1ebba084cc42269d63cbad8cc9a929~mv2.jpg",
   },
+];
+
+const FORM_FIELDS: BuilderContactField[] = [
+  { id: "name", name: "name", label: "Jméno a příjmení", type: "text", required: true, width: "half" },
+  { id: "email", name: "email", label: "E-mail", type: "email", required: true, width: "half" },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true, width: "half" },
+  { id: "size", name: "size", label: "Velikost základové desky (m²)", type: "text", width: "half" },
+  { id: "terrain", name: "terrain", label: "Terén pozemku (rovina / kopec)", type: "text", width: "half" },
+  { id: "access", name: "access", label: "Přístup na pozemek", type: "text", width: "half" },
+  { id: "location", name: "location", label: "Lokalita (město a oblast)", type: "text", width: "full" },
+  { id: "message", name: "message", label: "Zpráva / Upřesnění", type: "textarea", width: "full" },
 ];
 
 const CATEGORY = PAGE_OVERRIDES["/zakladove-dosky"].eyebrow;
@@ -139,21 +215,21 @@ export default function ZakladoveDoskyPage() {
       {/* ── PROBLEMS ─────────────────────────────────────────────────── */}
       <section className="bg-light py-20 md:py-28">
         <div className="mx-auto w-[92%]">
-          <AnimateOnScroll>
-            <h2 className="mb-14 text-center text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Problémy nekvalitní základové desky
+          <AnimateOnScroll className="mb-14 text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              Problémy spôsobené nekvalitnou základovou doskou
             </h2>
+            <p className="mt-3 text-sm text-foreground/55">Proč investovat do kvalitního základu?</p>
           </AnimateOnScroll>
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {PROBLEMS.map((p, index) => (
-              <AnimateOnScroll key={p.label} delay={index * 70}>
-                <div className="flex flex-col items-center gap-4 text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-primary/20 bg-white">
-                    <svg className="h-7 w-7 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+              <AnimateOnScroll key={p.label} delay={index * 100}>
+                <div className="group rounded-[2rem] border border-border bg-white p-8 transition-all hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_20px_50px_rgba(15,29,74,0.06)]">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    {p.icon}
                   </div>
-                  <p className="text-sm font-medium leading-5 text-foreground/75">{p.label}</p>
+                  <h3 className="mb-3 text-lg font-bold text-foreground">{p.label}</h3>
+                  <p className="text-sm leading-7 text-foreground/60">{p.desc}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -252,20 +328,24 @@ export default function ZakladoveDoskyPage() {
       </section>
 
       {/* ── INCLUDED ─────────────────────────────────────────────────── */}
-      <section className="bg-light py-20 md:py-28">
+      <section className="py-20 md:py-28">
         <div className="mx-auto w-[92%]">
           <AnimateOnScroll className="mb-14 text-center">
+            <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.26em] text-primary/55">
+              Základové desky
+            </p>
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
               Všechny potřebné úkony v ceně
             </h2>
-            <p className="mt-3 text-sm text-foreground/55">S námi máte garanci kvality</p>
           </AnimateOnScroll>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
             {INCLUDED.map((item, index) => (
-              <AnimateOnScroll key={item.label} delay={index * 50}>
-                <div className="flex flex-col items-center gap-3 text-center">
-                  <span className="text-4xl">{item.icon}</span>
-                  <p className="text-xs leading-5 text-foreground/70">{item.label}</p>
+              <AnimateOnScroll key={item.label} delay={index * 80}>
+                <div className="flex flex-col items-center gap-5 text-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-border bg-white text-primary shadow-sm transition-transform hover:scale-110">
+                    {item.icon}
+                  </div>
+                  <p className="text-sm font-bold text-foreground/80 leading-tight">{item.label}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -276,46 +356,80 @@ export default function ZakladoveDoskyPage() {
       {/* ── CONTACT ──────────────────────────────────────────────────── */}
       <section
         id="cenova-ponuka"
-        className="scroll-mt-32 bg-white py-20 md:scroll-mt-40 md:py-28"
+        className="scroll-mt-32 bg-light py-20 md:scroll-mt-40 md:py-28"
       >
-        <AnimateOnScroll className="mx-auto w-[92%] max-w-3xl text-center">
-          <h2 className="mb-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Jak nás kontaktovat?
-          </h2>
-          <p className="mb-10 text-sm text-foreground/55">
-            Pokud máte vypracovaný projekt pro základovou desku, pošlete nám jej e-mailem.
-            Po obdržení informací vám pošleme cenovou nabídku max. do 5 dnů
-            (obvykle do 1–2 dnů).
-          </p>
-          <div className="grid gap-4 sm:grid-cols-3">
-            <a
-              href={`mailto:${CONTACT_INFO.email}`}
-              className="rounded-2xl border border-border bg-light p-6 text-left transition-all hover:-translate-y-0.5 hover:border-primary/30"
-            >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary/55">
-                Email
-              </p>
-              <p className="mt-2 text-sm font-semibold text-foreground">{CONTACT_INFO.email}</p>
-            </a>
-            <a
-              href="tel:+420720045365"
-              className="rounded-2xl border border-border bg-light p-6 text-left transition-all hover:-translate-y-0.5 hover:border-primary/30"
-            >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary/55">
-                Telefon (CZ)
-              </p>
-              <p className="mt-2 text-sm font-semibold text-foreground">+420 720 045 365</p>
-            </a>
-            <div className="rounded-2xl border border-border bg-light p-6 text-left">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary/55">
-                Adresa
-              </p>
-              <p className="mt-2 text-sm leading-6 text-foreground/80">
-                Korunní 2569/108<br />Praha, Česká republika
-              </p>
-            </div>
+        <div className="mx-auto w-[92%] max-w-4xl">
+          <AnimateOnScroll className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Jak nás kontaktovat?
+            </h2>
+            <p className="mx-auto max-w-2xl text-base text-foreground/60">
+              Pokud máte vypracovaný projekt pro základovou desku, prosím, pošlete nám jej e-mailem na{" "}
+              <a href={`mailto:${CONTACT_INFO.email}`} className="font-bold text-primary underline">
+                {CONTACT_INFO.email}
+              </a>.
+            </p>
+          </AnimateOnScroll>
+
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+            <AnimateOnScroll delay={100}>
+              <div className="rounded-3xl border border-border bg-white p-8 md:p-10">
+                <h3 className="mb-6 text-xl font-bold text-foreground">Poptávkový formulář</h3>
+                <p className="mb-8 text-sm leading-7 text-foreground/60">
+                  Pokud nemáte projekt, vyplňte prosím tento formulář. Po obdržení informací vám pošleme cenovou nabídku maximálně do 5 dnů (obvykle do 1–2 dnů).
+                </p>
+                <BuilderContactForm
+                  fields={FORM_FIELDS}
+                  subject="Poptávka: Základová deska (CZ)"
+                  buttonText="Odeslat poptávku"
+                />
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll delay={200} className="space-y-8">
+              <div>
+                <h3 className="mb-4 text-xl font-bold text-foreground">Další kroky</h3>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">1</div>
+                    <div>
+                      <h4 className="font-bold text-foreground">Cenová nabídka</h4>
+                      <p className="mt-1 text-sm text-foreground/60">Obsahuje odhadované náklady na výkopové práce a zhotovení základové desky včetně materiálu a práce.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">2</div>
+                    <div>
+                      <h4 className="font-bold text-foreground">Termín realizace</h4>
+                      <p className="mt-1 text-sm text-foreground/60">Po akceptování cenové nabídky si stanovíme závazný termín realizace.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">3</div>
+                    <div>
+                      <h4 className="font-bold text-foreground">Záloha za materiál</h4>
+                      <p className="mt-1 text-sm text-foreground/60">Před nástupem našich pracovníků na stavbu se zaplatí záloha za materiál.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-3xl bg-primary/5 p-8">
+                <h4 className="mb-4 font-bold text-foreground">Přímý kontakt</h4>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <a href={`tel:+420720045365`} className="flex flex-col rounded-2xl border border-border bg-white p-5 transition-colors hover:border-primary/30">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary/50">Telefon (CZ)</span>
+                    <span className="mt-1 font-bold text-foreground">+420 720 045 365</span>
+                  </a>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="flex flex-col rounded-2xl border border-border bg-white p-5 transition-colors hover:border-primary/30">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary/50">Email</span>
+                    <span className="mt-1 font-bold text-foreground">{CONTACT_INFO.email}</span>
+                  </a>
+                </div>
+              </div>
+            </AnimateOnScroll>
           </div>
-        </AnimateOnScroll>
+        </div>
       </section>
 
       <ServiceRealizationGallery
