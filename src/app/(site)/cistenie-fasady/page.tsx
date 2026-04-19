@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     "Profesionálním čištěním se zbavte nevzhledných zelených skvrn, mechů a plísní a eliminujte možné alergie. Čištění fasády 5,5 – 9,5 EUR/m².",
 };
 
+export const revalidate = 0;
+
 const PROBLEMS = [
   { label: "Tvorba plísní a mechů" },
   { label: "Degradace stavebních materiálů" },

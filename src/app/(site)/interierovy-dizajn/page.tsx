@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Interiérový design pro rodinné domy, byty a komerční prostory. Nabízíme po celém Česku. Dispoziční návrh od 200 EUR.",
 };
 
+export const revalidate = 0;
+
 const CITIES =
   "Praha, Brno, Ostrava, Plzeň, Olomouc, Liberec, Hradec Králové, České Budějovice, Ústí nad Labem, Pardubice a jejich okolí";
 

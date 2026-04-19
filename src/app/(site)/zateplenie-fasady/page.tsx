@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "Kompletní zateplení rodinných domů kdekoli v Česku. Bez estetických chyb a skrytých poplatků. Ceny od 94 €/m².",
 };
 
+export const revalidate = 0;
+
 const INCLUDED = [
   { label: "Postavení lešení", icon: "🏗️" },
   { label: "Zakrytí oken a dlažby", icon: "🪟" },
