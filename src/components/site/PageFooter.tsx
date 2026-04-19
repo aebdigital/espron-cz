@@ -65,7 +65,7 @@ export default function PageFooter() {
               Cookies
             </CookieSettingsButton>
             <Link href="/ochrana-osobnych-udajov" className="transition-colors hover:text-white">
-              Ochrana osobných údajov
+              Ochrana osobních údajů
             </Link>
           </div>
         </div>

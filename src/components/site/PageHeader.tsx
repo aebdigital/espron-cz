@@ -15,7 +15,7 @@ import {
   NAVIGATION_GROUPS,
 } from "@/lib/site-navigation";
 
-type MegaMenuId = "stavebne" | "architektonicke" | "cistiace";
+type MegaMenuId = "stavebni" | "architektonicke" | "cisticí";
 
 type MegaMenuItem = {
   href: string;
@@ -41,50 +41,38 @@ const PANEL_TRANSITION = {
 };
 
 const DESKTOP_NAV_ITEMS: DesktopNavItem[] = [
-  { kind: "link", label: "Domov", href: "/" },
+  { kind: "link", label: "Domů", href: "/" },
   { kind: "link", label: "O nás", href: "/o-nas" },
   { kind: "link", label: "Blog", href: "/blog" },
-  { kind: "menu", label: "Stavebné práce", menuId: "stavebne" },
+  { kind: "menu", label: "Stavební práce", menuId: "stavebni" },
   {
     kind: "menu",
     label: "Architektonické služby",
     menuId: "architektonicke",
   },
-  { kind: "menu", label: "Čistiace práce", menuId: "cistiace" },
+  { kind: "menu", label: "Čisticí práce", menuId: "cisticí" },
   { kind: "link", label: "Kontakt", href: "/kontakt" },
 ];
 
 const PREVIEW_CONTENT: Record<string, Pick<MegaMenuItem, "image" | "description">> = {
   "/zateplenie-fasady": {
     image: FEATURED_FACADE_IMAGE,
-    description: "Kompletné zateplenie fasád a ETICS systémy po celom Slovensku.",
+    description: "Kompletní zateplení fasád a ETICS systémy po celém Česku.",
   },
-  "/sadrokartonove-prace": {
-    image: getServicePreviewImage("/sadrokartonove-prace", "/images/stavebne.jpg"),
-    description: "Stropy, priečky a čisté sadrokartónové realizácie na mieru.",
-  },
-  "/rucne-omietky": {
-    image: getServicePreviewImage("/rucne-omietky", "/images/interier-ext.jpg"),
-    description: "Ručné omietky pre rekonštrukcie, interiéry aj exteriéry.",
+  "/zakladove-dosky": {
+    image: getServicePreviewImage(
+      "/zakladove-dosky",
+      "https://static.wixstatic.com/media/11062b_52669a954ee44f869d54e8018d13f653~mv2.jpg",
+    ),
+    description: "Základové desky na klíč včetně zemních prací a izolací.",
   },
   "/interierovy-dizajn": {
     image: "/images/interier.jpg",
-    description: "Návrh dispozície, 3D vizualizácie a interiér na mieru.",
-  },
-  "/tepovanie": {
-    image: getServicePreviewImage("/tepovanie", "/images/projekt1.jpg"),
-    description: "Prémiové tepovanie kobercov, sedačiek aj čalúnenia áut.",
+    description: "Návrh dispozice, 3D vizualizace a interiér na míru.",
   },
   "/cistenie-fasady": {
     image: "/images/old-site/cistenie-fasady/tatranska-lomnica-03.webp",
-    description: "Odstránenie machov, plesní a škvŕn z fasády s impregnáciou.",
-  },
-  "/cistenie-dlazby": {
-    image: getServicePreviewImage(
-      "/cistenie-dlazby",
-      "/images/realizacie/b0408c_fdbfe48c629c4b9ca41b1651bc21cf79~mv2.avif",
-    ),
-    description: "Vysokotlakové čistenie chodníkov, dvorov a príjazdových plôch.",
+    description: "Odstranění mechů, plísní a skvrn z fasády s impregnací.",
   },
 };
 
@@ -112,26 +100,26 @@ function buildMegaMenuPanel(
 }
 
 const MEGA_MENU_PANELS: Record<MegaMenuId, MegaMenuPanel> = {
-  stavebne: buildMegaMenuPanel({
-    groupTitle: "Stavebné práce",
-    eyebrow: "Stavebné práce",
-    title: "Realizácie od fasády po finálny detail.",
+  stavebni: buildMegaMenuPanel({
+    groupTitle: "Stavební práce",
+    eyebrow: "Stavební práce",
+    title: "Realizace od základů po finální detail.",
     description:
-      "Po nabehnutí na položku sa panel prepne bez zatvárania a ukáže presne tie služby, ktoré do danej kategórie patria.",
+      "Po najetí na položku se panel přepne bez zavírání a ukáže přesně ty služby, které do dané kategorie patří.",
   }),
   architektonicke: buildMegaMenuPanel({
     groupTitle: "Architektonické služby",
     eyebrow: "Architektonické služby",
-    title: "Interiérový dizajn s vizualizáciou a jasným procesom.",
+    title: "Interiérový design s vizualizací a jasným procesem.",
     description:
-      "V tejto sekcii nájdete kompletný interiérový dizajn od prvého konceptu až po vizualizácie a cenovú ponuku.",
+      "V této sekci najdete kompletní interiérový design od prvního konceptu až po vizualizace a cenovou nabídku.",
   }),
-  cistiace: buildMegaMenuPanel({
-    groupTitle: "Čistiace práce",
-    eyebrow: "Čistiace práce",
-    title: "Tri čistiace služby, každá ako samostatná obrazová karta.",
+  cisticí: buildMegaMenuPanel({
+    groupTitle: "Čisticí práce",
+    eyebrow: "Čisticí práce",
+    title: "Čištění fasád jako samostatná obrazová karta.",
     description:
-      "Fasády, dlažba aj tepovanie sa prepínajú v rovnakom hover paneli, aby navigácia pôsobila ako jeden systém.",
+      "Odstraňujeme mechy, plísně a skvrny a chráníme fasádu impregnací, aby si udržela čistý vzhled na roky dopředu.",
   }),
 };
 
@@ -225,7 +213,7 @@ export default function PageHeader() {
             href="/"
             className="relative z-10 flex items-center"
             onMouseEnter={closeMenus}
-            aria-label="ESPRON domov"
+            aria-label="ESPRON domů"
           >
             <Image
               src="/espron-logo.png"
@@ -241,7 +229,7 @@ export default function PageHeader() {
           <nav
             className="hidden items-center lg:flex"
             onMouseLeave={scheduleClose}
-            aria-label="Hlavná navigácia"
+            aria-label="Hlavní navigace"
           >
             {DESKTOP_NAV_ITEMS.map((item) => {
               if (item.kind === "link") {
@@ -448,7 +436,7 @@ export default function PageHeader() {
         {activeMenu ? (
           <motion.button
             type="button"
-            aria-label="Zavrieť mega menu"
+            aria-label="Zavřít mega menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

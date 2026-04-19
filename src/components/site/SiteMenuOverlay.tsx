@@ -15,13 +15,10 @@ type SiteMenuOverlayProps = {
   pathname: string;
 };
 
-const mainLinks = NAVIGATION_GROUPS.find((g) => g.title === "Hlavné stránky")?.items ?? [];
+const mainLinks = NAVIGATION_GROUPS.find((g) => g.title === "Hlavní stránky")?.items ?? [];
 const primaryHeaderLinks = new Set(["/", "/o-nas", "/blog", "/kontakt"]);
 const groupedLinks = NAVIGATION_GROUPS.filter(
-  (group) =>
-    group.title !== "Hlavné stránky" &&
-    group.title !== "Zateplenie v praxi" &&
-    group.title !== "Ďalšie",
+  (group) => group.title !== "Hlavní stránky",
 );
 
 export default function SiteMenuOverlay({
@@ -50,7 +47,7 @@ export default function SiteMenuOverlay({
 
           <div className="relative z-10 mx-auto flex h-24 w-[92%] items-center justify-between">
             <div className="flex items-center">
-              <Link href="/" onClick={onClose} aria-label="ESPRON domov">
+              <Link href="/" onClick={onClose} aria-label="ESPRON domů">
                 <Image
                   src="/espron-logo.png"
                   alt="ESPRON"
@@ -72,8 +69,8 @@ export default function SiteMenuOverlay({
                   <span className="absolute h-[1.5px] w-full -rotate-45 rounded-full bg-white" />
                 </span>
                 <span className="hover-split-text">
-                  <span className="hover-split-text-inner" data-text="Zavrieť">
-                    Zavrieť
+                  <span className="hover-split-text-inner" data-text="Zavřít">
+                    Zavřít
                   </span>
                 </span>
               </button>
@@ -84,7 +81,7 @@ export default function SiteMenuOverlay({
             <div className="mx-auto grid w-[92%] grid-cols-1 gap-12 py-10 md:grid-cols-[1fr_2fr] md:gap-20 md:py-0">
               <div className="hidden flex-col md:flex">
                 <span className="mb-8 block text-xs uppercase tracking-widest text-white/30">
-                  Kontakt & Informácie
+                  Kontakt & informace
                 </span>
 
                 <div className="mb-8">
@@ -104,7 +101,7 @@ export default function SiteMenuOverlay({
 
                 <div className="mb-8">
                   <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
-                    Kontaktné údaje
+                    Kontaktní údaje
                   </span>
                   <Link
                     href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}`}
@@ -122,7 +119,7 @@ export default function SiteMenuOverlay({
 
                 <div>
                   <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
-                    Kedy nás kontaktovať
+                    Kdy nás kontaktovat
                   </span>
                   <p className="text-sm font-light text-white/70">
                     {CONTACT_INFO.hours}
@@ -138,7 +135,7 @@ export default function SiteMenuOverlay({
                     transition={{ delay: 0.35, duration: 0.4 }}
                   >
                     <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.24em] text-white/35">
-                      Hlavné stránky
+                      Hlavní stránky
                     </p>
                     <div className="space-y-2">
                       {mainLinks

@@ -18,10 +18,10 @@ export default function CtaBanner() {
       <div className="relative z-10 py-20 text-center md:py-32">
  <div className="mx-auto w-[92%]">
           <h2 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-7xl">
-            Plánujete stavať alebo rekonštruovať?
+            Plánujete stavbu nebo rekonstrukci?
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-lg font-light italic leading-relaxed text-white/50 md:text-xl">
-            Kontaktujte nás a získajte nezáväznú cenovú ponuku do 48 hodín.
+            Kontaktujte nás a získejte nezávaznou cenovou nabídku do 48 hodin.
           </p>
           <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row">
             <Link

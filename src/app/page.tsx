@@ -17,13 +17,10 @@ import { listBlogPosts } from "@/lib/cms-blog-posts";
 export const dynamic = "force-dynamic";
 
 const services = [
-  { title: "Zateplenie fasády", image: FEATURED_FACADE_IMAGE, href: "/zateplenie-fasady" },
-  { title: "Sadrokartónové práce", image: getServicePreviewImage("/sadrokartonove-prace", "/images/stavebne.jpg"), href: "/sadrokartonove-prace" },
-  { title: "Ručné omietky", image: getServicePreviewImage("/rucne-omietky", "/images/interier-ext.jpg"), href: "/rucne-omietky" },
-  { title: "Interiérový dizajn", image: "/images/interier.jpg", href: "/interierovy-dizajn" },
-  { title: "Čistenie fasády", image: "/images/old-site/cistenie-fasady/tatranska-lomnica-03.webp", href: "/cistenie-fasady" },
-  { title: "Čistenie dlažby", image: getServicePreviewImage("/cistenie-dlazby", "/images/realizacie/b0408c_fdbfe48c629c4b9ca41b1651bc21cf79~mv2.avif"), href: "/cistenie-dlazby" },
-  { title: "Tepovanie", image: getServicePreviewImage("/tepovanie", "/images/projekt1.jpg"), href: "/tepovanie" },
+  { title: "Zateplení fasády", image: FEATURED_FACADE_IMAGE, href: "/zateplenie-fasady" },
+  { title: "Základové desky", image: "https://static.wixstatic.com/media/11062b_52669a954ee44f869d54e8018d13f653~mv2.jpg", href: "/zakladove-dosky" },
+  { title: "Interiérový design", image: "/images/interier.jpg", href: "/interierovy-dizajn" },
+  { title: "Čištění fasády", image: "/images/old-site/cistenie-fasady/tatranska-lomnica-03.webp", href: "/cistenie-fasady" },
 ];
 
 export default async function Home() {
@@ -32,7 +29,7 @@ export default async function Home() {
     num: String(i + 1).padStart(2, "0"),
     title: post.title,
     desc: post.excerpt,
-    link: "Čítať článok",
+    link: "Číst článek",
     image: post.cover_image || FEATURED_FACADE_IMAGE,
     href: `/blog/${post.slug}`,
   }));
@@ -56,13 +53,13 @@ export default async function Home() {
 
  <div className="relative z-10 w-[92%] mx-auto">
           <h1 className="animate-fade-up-delay-1 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
-            Stavba alebo rekonštrukcia?<br />
-            <span className="font-light text-white/70">Sprevádzame vás od základov až po fasádu.</span>
+            Stavba nebo rekonstrukce?<br />
+            <span className="font-light text-white/70">Provedeme vás od základů až po fasádu.</span>
           </h1>
           <p className="animate-fade-up-delay-2 mt-10 text-lg md:text-xl text-white/50 font-light max-w-xl leading-relaxed">
-            Viac ako 10 rokov skúseností v stavebníctve. Špecializujeme sa na 
-            <span className="text-white italic"> zatepľovacie a sadrokartónové práce, ručné omietky, interiérový dizajn </span> a kompletné 
-            <span className="text-white italic"> čistiace služby.</span>
+            Více než 10 let zkušeností ve stavebnictví. Specializujeme se na
+            <span className="text-white italic"> základové desky, zateplování fasád, interiérový design </span> a kompletní
+            <span className="text-white italic"> čištění fasád.</span>
           </p>
           <div className="animate-fade-up-delay-3 mt-12 flex flex-col sm:flex-row gap-4">
             <Link
@@ -70,7 +67,7 @@ export default async function Home() {
               className="group inline-flex items-center justify-center px-10 py-4 bg-white text-primary text-sm font-bold rounded-full hover:bg-white/90 transition-all duration-300"
             >
               <span className="hover-split-text">
-                <span className="hover-split-text-inner" data-text="Získať cenovú ponuku">Získať cenovú ponuku</span>
+                <span className="hover-split-text-inner" data-text="Získat cenovou nabídku">Získat cenovou nabídku</span>
               </span>
             </Link>
             <SmoothAnchorLink
@@ -101,7 +98,7 @@ export default async function Home() {
                 Naše služby
               </p>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
-                Čo pre vás<br />môžeme urobiť
+                Co pro vás<br />můžeme udělat
               </h2>
             </AnimateOnScroll>
 
@@ -127,7 +124,7 @@ export default async function Home() {
                         {service.title}
                       </h3>
                       <span className="mt-1 inline-flex items-center gap-1 text-[11px] font-semibold text-white/60 group-hover:text-white/90 transition-colors">
-                        Zistiť viac
+                        Zjistit více
                         <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
@@ -157,10 +154,10 @@ export default async function Home() {
             <AnimateOnScroll>
               <div className="text-center px-6">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-                  Viac ako 10 rokov skúseností
+                  Více než 10 let zkušeností
                 </h2>
                 <p className="mt-4 text-lg font-light text-white/50 uppercase tracking-widest">
-                  Po celom Slovensku a Česku
+                  Po celém Česku i Slovensku
                 </p>
               </div>
             </AnimateOnScroll>
@@ -179,14 +176,14 @@ export default async function Home() {
                   Blog
                 </h2>
                 <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4">
-                  Zobraziť všetky príspevky
+                  Zobrazit všechny příspěvky
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
               </div>
               <p className="mt-4 text-base font-light text-muted max-w-xl">
-                Tipy, postupy a naše skúsenosti
+                Tipy, postupy a naše zkušenosti
               </p>
             </AnimateOnScroll>
 
